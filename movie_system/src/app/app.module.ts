@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login-register/login.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 
@@ -18,20 +20,33 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { HomepageComponent } from './homepage/homepage.component'
+
+export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
+
+const routes: Routes = [
+  {path : '', component: HomepageComponent},
+  {path : 'login', component: LoginComponent},
+  {path : 'register', component: RegisterComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot(),
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]

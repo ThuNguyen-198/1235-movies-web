@@ -1,0 +1,101 @@
+.form-control{
+  gap: 5px;
+  color: black !important;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.491);
+  border-radius: 40px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+  width: 100%;
+}
+
+a {
+  color: coral;
+}
+a:hover {
+  color: #fff;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none; } }
+.form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.8) !important; }
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(0, 0, 0, 0.8) !important; }
+.form-control:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(0, 0, 0, 0.8) !important; }
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(0, 0, 0, 0.8) !important; }
+.form-control:hover, .form-control:focus {
+  background: transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.434); }
+.form-control:focus {
+  border-color: rgba(255, 255, 255, 0.434); }
+
+.header{
+  padding: 2rem;
+}
+
+.form-group{
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgb(146, 203, 252) transparent;
+}
+
+.row {
+    background-color: rgba(255, 255, 255, 0.46);
+    border-radius: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+    align-self: center;
+    position: relative;
+}
+
+.btn {
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 40px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+  .btn:hover, .btn:active, .btn:focus {
+    outline: none; }
+  .btn.btn-primary {
+    background: #fbceb5 !important;
+    border: 1px solid #fbceb5 !important;
+    color: #000 !important; }
+    .btn.btn-primary:hover {
+      border: 1px solid #fbceb5;
+      background: transparent;
+      color: #fbceb5; }
+    .btn.btn-primary.btn-outline-primary {
+      border: 1px solid #fbceb5;
+      background: transparent;
+      color: #fbceb5; }
+      .btn.btn-primary.btn-outline-primary:hover {
+        border: 1px solid transparent;
+        background: #fbceb5;
+        color: #fff; }
+
+@media (min-width: 1200px) {
+  .container{
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+}
+        

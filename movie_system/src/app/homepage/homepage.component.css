@@ -1,0 +1,24 @@
+nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+li {
+    margin: 15px 0;
+}
+
+ul.dropdown-menu {
+    list-style: none;
+    padding: 0;
+}
+  
+ul.dropdown-menu li {
+    padding: .5em 0;
+    border-bottom: 1px solid #CCC;
+}
+
+ul.dropdown-menu li:last-child {
+    border-bottom: 0;
+}

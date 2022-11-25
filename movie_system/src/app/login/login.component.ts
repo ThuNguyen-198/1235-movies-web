@@ -9,6 +9,8 @@ import { FormGroup, FormControl, Validators} from "@angular/forms";
 
 export class LoginComponent {
     email = new FormControl('', [Validators.required, Validators.email]);
-    loginTitle = 'Login';
+    loginTitle = 'LOGIN';
     username = '';
+    password = '';
+
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -32,9 +33,16 @@ const routes: Routes = [
   {path : 'register', component: RegisterComponent},
 ];
 
+import { HttpClientModule } from "@angular/common/http";
+import { MoviesComponent } from './movies/movies.component';
+
+import { MatCardModule } from '@angular/material/card';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+
     LoginComponent,
     RegisterComponent,
     HomepageComponent,
@@ -47,6 +55,15 @@ const routes: Routes = [
     FormsModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot(routes),
+
+    MoviesComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatCardModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

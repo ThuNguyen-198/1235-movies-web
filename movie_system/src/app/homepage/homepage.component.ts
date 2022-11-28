@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomepageComponent implements OnInit {
 
   username = 'smmr.rrr';
+  userRole = 'admin';
   movies: any = [
     {
       "adult": false,

@@ -28,13 +28,16 @@ import { HomepageComponent } from './homepage/homepage.component'
 export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
 const routes: Routes = [
-  {path : '', component: HomepageComponent},
+  {path : 'home', component: HomepageComponent},
   {path : 'login', component: LoginComponent},
   {path : 'register', component: RegisterComponent},
+  {path : 'movie-details', component: MovieDetailsComponent},
+  {path : '', component: MovieDetailsComponent}
 ];
 
 import { HttpClientModule } from "@angular/common/http";
 import { MoviesComponent } from './movies/movies.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 @NgModule({
@@ -44,7 +47,8 @@ import { MoviesComponent } from './movies/movies.component';
     LoginComponent,
     RegisterComponent,
     HomepageComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,12 +16,7 @@ h2 {
 }
 
 html, body{
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
     font-weight: 400;
     height: 100%;
 }
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-

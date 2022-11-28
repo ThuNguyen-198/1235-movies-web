@@ -36,16 +36,15 @@ const routes: Routes = [
 import { HttpClientModule } from "@angular/common/http";
 import { MoviesComponent } from './movies/movies.component';
 
-import { MatCardModule } from '@angular/material/card';
-
 
 @NgModule({
+
   declarations: [
     AppComponent,
-
     LoginComponent,
     RegisterComponent,
     HomepageComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -55,15 +54,7 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot(routes),
-
-    MoviesComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatCardModule,
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

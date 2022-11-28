@@ -7,7 +7,6 @@ export class MovieService {
 
     private movies: Movie[] = [{ id: "1", title: "tada" }];
     private moviesUpdated = new Subject<Movie[]>();
-    private msg = 'a';
     constructor(private http: HttpClient) { }
 
     getMovies() {
@@ -16,7 +15,7 @@ export class MovieService {
                 this.movies = moviesData.posts;
                 this.moviesUpdated.next([...this.movies]);
             });
-        console.log(this.moviesUpdated.asObservable());
+
         return this.moviesUpdated.asObservable();
     }
 } 

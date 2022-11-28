@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="Name" [(ngModel)]="accountName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="Email Address" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="Home Address" [(ngModel)]="address">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="Phone Number" [(ngModel)]="phone">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="Password" [(ngModel)]="password">
+    </mat-form-field>
+    <button color="accent" (click)="onAddAccount()">Create Account</button>
+</mat-card>

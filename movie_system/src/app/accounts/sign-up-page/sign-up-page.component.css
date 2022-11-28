@@ -1,0 +1,24 @@
+mat-card{
+    left: 10%;
+    right: 10%;
+    margin-top: 10%;
+    width: 80%;
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+mat-form-field{
+    width: 80%;
+    height: 3rem;
+    margin: auto;
+}
+input{
+    width: 80%;
+    height: 2rem;
+    margin: auto;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

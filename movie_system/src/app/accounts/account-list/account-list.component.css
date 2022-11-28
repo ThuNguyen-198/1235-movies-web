@@ -1,0 +1,9 @@
+mat-card{
+    left: 10%;
+    right: 10%;
+    margin-top: 10%;
+    width: 80%;
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

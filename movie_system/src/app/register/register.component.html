@@ -9,7 +9,34 @@
         <div class="row justify-content-center"> 
             <h2 style="color: white">{{registerTitle}}</h2>
 
-            <div class="row justify-content-center" style="background-color: transparent; padding-bottom: 0%;">
+            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+                <div class="col-lg-10 col-lg-4">
+                    <div class="form-group">
+                        <label for="regEmail"></label>
+                        <input type="text" class="form-control p-3" [(ngModel)]="regEmail" id="regEmail" placeholder="Email" required="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+                <div class="col-lg-10 col-lg-4">
+                    <div class="form-group">
+                        <label for="regUsername"></label>
+                        <input type="text" class="form-control p-3" [(ngModel)]="regUsername" id="regUsername" placeholder="Username" required="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+                <div class="col-lg-10 col-lg-4">
+                    <div class="form-group">
+                        <label for="regPassword"></label>
+                        <input type="password" class="form-control p-3" id="regPassword" placeholder="Password" required="">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
                         <label for="registerFirst"></label>
@@ -36,38 +63,11 @@
                 </div>
             </div>
             
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
                         <label for="phoneNumber"></label>
                         <input type="text" class="form-control p-3" id="phoneNumber" placeholder="Phone Number" mask='(000) 000-0000'>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
-                <div class="col-lg-10 col-lg-4">
-                    <div class="form-group">
-                        <label for="regEmail"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="regEmail" id="regEmail" placeholder="Email" required="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
-                <div class="col-lg-10 col-lg-4">
-                    <div class="form-group">
-                        <label for="regUsername"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="regUsername" id="regUsername" placeholder="Username" required="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%;">
-                <div class="col-lg-10 col-lg-4">
-                    <div class="form-group">
-                        <label for="regPassword"></label>
-                        <input type="password" class="form-control p-3" id="regPassword" placeholder="Password" required="">
                     </div>
                 </div>
             </div>  

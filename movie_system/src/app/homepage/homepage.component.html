@@ -3,34 +3,7 @@
     height:100%; overflow: auto; opacity: 75%; 
     display: flex; flex-direction: column;">
 
-    <nav class="navbar navbar-light navbar-expand-md justify-content-md-center justify-content-start" style="background-color: rgba(255, 255, 255, 0.18);">
-        
-        <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
-            <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                  <i class="material-icons-outlined align-items-center">menu</i>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Browse current movie catalog</a></li>
-                  <li><a class="dropdown-item" href="#">Browse upcoming movie catalog</a></li>
-                  <li><a class="dropdown-item" href="#">Add show</a></li>
-                  <li><a class="dropdown-item" href="#">Current status report</a></li>
-                </ul>
-              </div> 
-        </div>
-
-        <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
-            <a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="">
-                <img src="assets/images/icons8-film-reel-100.png" style="filter: invert(90%); height:50%; width: 50%;">
-            </a>
-        </div>
-
-        <div class="navbar-collapse collapse justify-content-end align-items-center">
-            <h2 style="font-size: 15px; padding-right: 15px; color:white">Welcome, {{username}}</h2>
-            <img class="rounded-circle shadow-4-strong" alt="User Profile" src="assets/images/user-profile.png" 
-                style="height:50px; width:50px;"/>
-        </div>
-    </nav>
+    <app-header-bar></app-header-bar>
 
     <div class="container p-3" style="margin-top: 10px;">
         <div class="row align-items-center">

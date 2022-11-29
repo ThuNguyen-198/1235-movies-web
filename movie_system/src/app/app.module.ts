@@ -32,12 +32,13 @@ const routes: Routes = [
   {path : 'login', component: LoginComponent},
   {path : 'register', component: RegisterComponent},
   {path : 'movie-details', component: MovieDetailsComponent},
-  {path : '', component: HomepageComponent}
+  {path : '', component: MovieDetailsComponent}
 ];
 
 import { HttpClientModule } from "@angular/common/http";
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     RegisterComponent,
     HomepageComponent,
     MoviesComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    HeaderBarComponent
   ],
   imports: [
     BrowserModule,

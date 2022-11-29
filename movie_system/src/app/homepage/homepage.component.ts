@@ -27,7 +27,7 @@ export class HomepageComponent implements OnInit {
     },
     {
       "adult": false,
-      "backdrop_path": "/mz0HRRA5kiz0rGVtBKAUVGMYBou.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/mz0HRRA5kiz0rGVtBKAUVGMYBou.jpg",
       "genre_ids": [],
       "original_language": "en",
       "original_title": "Smyrna",

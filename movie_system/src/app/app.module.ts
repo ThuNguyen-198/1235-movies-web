@@ -32,7 +32,7 @@ const routes: Routes = [
   {path : 'login', component: LoginComponent},
   {path : 'register', component: RegisterComponent},
   {path : 'movie-details', component: MovieDetailsComponent},
-  {path : '', component: MovieDetailsComponent}
+  {path : '', component: HomepageComponent}
 ];
 
 import { HttpClientModule } from "@angular/common/http";

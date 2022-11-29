@@ -32,7 +32,7 @@ export class HomepageComponent implements OnInit {
       "original_title": "Smyrna",
       "overview": "A century after the disaster of Smyrna comes to life the critically acclaimed and moving drama about an elderly Greek American woman whose family diary recounts the 1922 burning of the cosmopolitan city of Smyrna where Greeks, Turks, Jews, Armenians, and Levantines once lived together harmoniously.",
       "popularity": 3.502,
-      "poster_path": "/wMNtjz063B2WjV3kuVhniGzdMcF.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/w500/wMNtjz063B2WjV3kuVhniGzdMcF.jpg",
       "release_date": "2022-12-08",
       "title": "Smyrna",
       "video": false,

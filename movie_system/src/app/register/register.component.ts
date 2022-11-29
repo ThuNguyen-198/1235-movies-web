@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   regUsername = "";
   regFirst = "";
   regLast = "";
+  regEmail = "";
   address = "";
   phoneNumber = "";
   regPassword = "";

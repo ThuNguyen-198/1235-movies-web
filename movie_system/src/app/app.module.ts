@@ -21,24 +21,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { HomepageComponent } from './homepage/homepage.component'
 
-export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
-
-const routes: Routes = [
-  {path : 'home', component: HomepageComponent},
-  {path : 'login', component: LoginComponent},
-  {path : 'register', component: RegisterComponent},
-  {path : 'movie-details', component: MovieDetailsComponent},
-  {path : '', component: MovieDetailsComponent}
-];
+export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 import { HttpClientModule } from "@angular/common/http";
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -58,9 +51,8 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
     MatCardModule,
     MatFormFieldModule,
     FormsModule,
-    NgxMaskModule.forRoot(),
-    RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

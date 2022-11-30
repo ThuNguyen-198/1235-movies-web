@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-movie-details',
@@ -9,6 +10,7 @@ export class MovieDetailsComponent implements OnInit {
   movieTitle = "Marcel the Shell With Shoes On";
   rating = 4.5;
   reviews = ["Great movie! Can't believe I cried about 10 times.", "Definitly going to watch this again!"];
+  openReview = false;
   casts: any = [
     {
       "name": "Jenny Slate",
@@ -32,4 +34,7 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onReview(){
+    this.openReview = !this.openReview;
+  }
 }

@@ -7,7 +7,6 @@ nav {
 
 button {
     background-color: rgba(255, 255, 255, 0.2); border:0;
-    size: 10px;
 }
 
 li {
@@ -42,4 +41,12 @@ h1 {
     color: bisque; 
     font-size: 50px; 
     text-align: left;
+}
+
+h3 {
+    font-family: 'Permanent Marker', cursive; 
+}
+
+ul {
+    list-style: none;
 }

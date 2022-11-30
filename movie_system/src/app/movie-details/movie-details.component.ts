@@ -6,16 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  reviews: any = [
+  movieTitle = "Marcel the Shell With Shoes On";
+  rating = 4.5;
+  reviews = ["Great movie! Can't believe I cried about 10 times.", "Definitly going to watch this again!"];
+  casts: any = [
     {
-      "username": "amy94",
-      "review": "Great movie! Thought I would not cry at a family, comedy movie but yes, crying like a baby."
+      "name": "Jenny Slate",
+      "picture_path": "assets/images/jenny-slate.jpg",
+      "role" : "Marcel"
     },
     {
-      "username": "smmr.rrr",
-      "review": "Would really recommmend! Such a wonderful movie."
+      "name": "Dean Fleischer-Camp",
+      "picture_path": "assets/images/dean-fleicher.jpg",
+      "role" : "Dean"
+    },
+    {
+      "name": "Nathan Fielder",
+      "picture_path": "assets/images/nathan-fielder.jpg",
+      "role" : "Justin"
     }
-  ]
+  ];
+  
   constructor() { }
 
   ngOnInit(): void {

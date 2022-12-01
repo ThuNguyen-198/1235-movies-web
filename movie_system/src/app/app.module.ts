@@ -28,13 +28,13 @@ import { HomepageComponent } from './homepage/homepage.component'
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 import { HttpClientModule } from "@angular/common/http";
-import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StarRatingModule } from 'angular-star-rating';
 import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
+import { FilterPipe } from './homepage/filter.pip';
 
 @NgModule({
 
@@ -43,10 +43,10 @@ import { TicketBookingComponent } from './ticket-booking/ticket-booking.componen
     LoginComponent,
     RegisterComponent,
     HomepageComponent,
-    MoviesComponent,
     MovieDetailsComponent,
     HeaderBarComponent,
-    TicketBookingComponent
+    TicketBookingComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -57,9 +57,9 @@ import { TicketBookingComponent } from './ticket-booking/ticket-booking.componen
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
   ],
-  providers: [],
+  providers: [FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

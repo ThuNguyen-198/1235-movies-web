@@ -5,9 +5,8 @@ import { Subject } from "rxjs";
 @Injectable({ providedIn: "root" })
 export class MovieService {
 
-    private movies: Movie[] = [{ id: "1", title: "tada" }];
+    private movies: Movie[] = [];
     private moviesUpdated = new Subject<Movie[]>();
-    private msg = 'a';
     constructor(private http: HttpClient) { }
 
     getMovies() {

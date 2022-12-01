@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-ticket-booking',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketBookingComponent implements OnInit {
 
-  constructor() { }
+  theaters = ["Lubbock Premiere", "Cinemark Movies 16", "Alamo Drafthouse Lubbock", "Stars and Stripes"];
+  showtimes = [["4:00PM","5:30PM","7:35 PM", "10:30 PM"], ["6:45 PM", "7:45 PM", "9:30 PM", "10:20 PM"], ["7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM"], ["6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM"]];
+  booked = [];
+
+  constructor(
+  ) {}
 
   ngOnInit(): void {
   }
-
+  
 }

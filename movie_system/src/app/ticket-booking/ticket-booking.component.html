@@ -1,1 +1,40 @@
-<p>ticket-booking works!</p>
+<div style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('assets/images/bg.jpg');background-size: cover; 
+    height:100%; overflow: auto; opacity: 75%; 
+    display: flex; flex-direction: column;">
+    <app-header-bar></app-header-bar>
+
+    <div class="row">
+        <div class="container mt-5 align-items-center" style="background-color: transparent; padding-left: 100px;">
+            <i class="material-icons-outlined float-start" style="font-size: 70px; color: bisque; padding-right: 10px;">
+                book_online
+            </i>
+            <h1>Booking</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item" *ngFor="let theater of theaters; let i = index;">
+              <h2 class="accordion-header" [id]="'heading' + i">
+                <button class="accordion-button" [ngClass]="{ 'collapsed': i != 0 }" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i">
+                  {{theater}}
+                </button>
+              </h2>
+              <div [id]="'collapse'+i" class="accordion-collapse collapse" [ngClass]="{'show': i == 0 }" [attr.aria-labelledby]="'heading'+i" data.bs.parent="#accordionPanelsStayOpenExample">
+                <div class="accordion-body">
+                  <div class="form-check" *ngFor="let time of showtimes[i]; let j = index">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [attr.value]="'option' + i" checked>
+                    <label class="form-check-label" [attr.for]="'radio' + i">
+                      {{time}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-5">Get Data</button>
+    </div>
+
+</div>

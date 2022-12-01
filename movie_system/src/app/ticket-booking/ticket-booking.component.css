@@ -1,0 +1,26 @@
+.container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive; 
+    color: bisque; 
+    font-size: 50px; 
+    text-align: left;
+}
+
+.radio-primary {
+    color: antiquewhite;
+}
+
+.form-check {
+    color: antiquewhite;
+    font-weight: bold;
+}
+
+.form-check-label {
+    color: #4a4a49;
+}

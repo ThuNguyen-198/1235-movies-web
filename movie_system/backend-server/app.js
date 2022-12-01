@@ -63,12 +63,13 @@ app.get("/accounts", (req, res, next) => {
 })
 
 
-const url = "https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=499c8d15&app_key=0080b0c18013a490f54403717febca02&results_per_page=10&content-type=application/json"
+const url = "https://api.themoviedb.org/3/movie/upcoming?api_key=32a493f008c6421b255d91b5cbc139b7&language=en-US&page=10"
 https.get(url, function (response) {
     response.on("data", function (data) {
         const jobsData = JSON.parse(data);
+
         const jobsJson = jobsData.results;
-        app.use("/", (req, res, next) => {
+        app.use("/movies", (req, res, next) => {
             res.status(200).json({
                 message: 'success',
                 posts: jobsJson

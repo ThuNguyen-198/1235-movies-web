@@ -11,10 +11,10 @@
   </div>
 
   <div class="navbar-collapse collapse justify-content-end align-items-center">
-    <button type="button" *ngIf="!userLoggedIn" class="btn btn-outline-info" style="color: antiquewhite; margin-left: 10px; padding:5px;" routerLink="/login">
+    <button type="button" *ngIf="!userLoggedIn" class="btn btn-outline-info" style="color: antiquewhite; margin-left: 10px; padding:5px; width:70px;" routerLink="/login">
       Login
     </button>   
-    <button type="button" *ngIf="!userLoggedIn" class="btn btn-outline-warning" style="color: antiquewhite; margin-left: 10px; margin-right: 10px; padding:5px;" routerLink="/register">
+    <button type="button" *ngIf="!userLoggedIn" class="btn btn-outline-warning" style="color: antiquewhite; margin-left: 10px; padding:5px; width:70px;" routerLink="/register">
       Register
     </button> 
     <h2 style="font-size: 13px; padding-right: 15px; color:bisque; margin-bottom: 0;" *ngIf="userLoggedIn">Welcome, {{username}}</h2>

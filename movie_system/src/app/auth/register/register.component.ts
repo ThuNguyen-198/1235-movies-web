@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    alert("Account Created Successfully!");
     const account: Account = {
       regUsername: this.regUsername,
       regEmail: this.regEmail,

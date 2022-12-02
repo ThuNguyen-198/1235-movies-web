@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Account } from "../account.model";
 import { AccountService } from "../account.service";
+import { Auth } from "../auth.model";
 
 @Component({
     selector: 'app-login',
@@ -20,10 +21,7 @@ export class LoginComponent {
     ngOnInit() { }
 
     onLogin() {
-        this.accountService.getAccounts;
-        this.accountService.getAccountUpdateListener()
-            .subscribe((accountsReturned: Account[]) => {
-                this.accounts = accountsReturned;
-            })
+        const auth: Auth = { regUsername: this.username, regPassword: this.password }
+        this.accountService.login(auth);
     }
 }

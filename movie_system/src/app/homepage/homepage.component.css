@@ -12,3 +12,11 @@ h1 {
     font-size: 50px; 
     text-align: left;
 }
+
+.col-md-3 {
+    width: fit-content;
+}
+
+.material-icons-outlined {
+    font-size: 70px; color: bisque; padding-right: 10px;
+}

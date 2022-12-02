@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class AddMovieComponent implements OnInit {
-    
+    userRole = 'admin';
     constructor(
         ) {}
       

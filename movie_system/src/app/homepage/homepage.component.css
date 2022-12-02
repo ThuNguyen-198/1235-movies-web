@@ -11,4 +11,15 @@ h1 {
     color: bisque; 
     font-size: 50px; 
     text-align: left;
+    width: fit-content;
+}
+
+.col-md-3 {
+    width: fit-content;
+}
+
+.material-icons-outlined {
+    width: 90px;
+    font-size: 70px; 
+    color: bisque;
 }

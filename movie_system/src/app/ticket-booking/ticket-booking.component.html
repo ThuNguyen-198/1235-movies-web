@@ -2,8 +2,8 @@
     url('assets/images/bg.jpg');background-size: cover; 
     height:100%; overflow: auto; opacity: 75%; 
     display: flex; flex-direction: column;">
+    
     <app-header-bar></app-header-bar>
-
     <div class="row">
         <div class="container align-items-center" style="background-color: transparent; padding-left: 100px;">
             <i class="material-icons-outlined float-start" style="font-size: 70px; color: bisque; padding-right: 10px;">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="row justify-content-start mt-3" *ngIf="selection != ''" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
-            <div class="col-md-8 mb-4">
+            <div class="col-md-7 mb-4" style="padding-left: 100px; padding-right: 100px;">
               <div class="card mb-4" style="background-color:rgba(0, 0, 0, 0.6); border-color: white;">
                 <div class="card-header py-3" style="border-color: white;">
                   <h2 class="mb-0">Biling details</h2>
@@ -210,5 +210,4 @@
       </div>
         
     </div>
-
 </div>

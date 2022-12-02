@@ -35,6 +35,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StarRatingModule } from 'angular-star-rating';
 import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
 import { FilterPipe } from './homepage/filter.pip';
+import { AddMovieComponent } from './admin/add-movie/add-movie.component';
 
 @NgModule({
 
@@ -46,7 +47,8 @@ import { FilterPipe } from './homepage/filter.pip';
     MovieDetailsComponent,
     HeaderBarComponent,
     TicketBookingComponent,
-    FilterPipe
+    FilterPipe,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { FilterPipe } from './homepage/filter.pip';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
+    NgxMaskModule.forRoot(),
     StarRatingModule.forRoot(),
   ],
   providers: [FilterPipe],

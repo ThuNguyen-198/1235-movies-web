@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
       phoneNumber: this.phoneNumber,
       regPassword: this.regPassword
     }
-    this.accountService.addAccount(account);
+    this.accountService.createAccount(account);
   }
 
 }

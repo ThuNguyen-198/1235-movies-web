@@ -15,7 +15,6 @@ export class MovieService {
                 this.movies = moviesData.posts;
                 this.moviesUpdated.next([...this.movies]);
             });
-        console.log(this.moviesUpdated.asObservable());
         return this.moviesUpdated.asObservable();
     }
 } 

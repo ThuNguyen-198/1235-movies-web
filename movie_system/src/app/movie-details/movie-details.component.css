@@ -1,0 +1,23 @@
+h1 {
+    text-transform: uppercase; 
+    font-family: 'Fredoka One', cursive; 
+    filter: drop-shadow(3px 3px 3px black); 
+    font-size: 40px;
+    color:antiquewhite;
+    text-align: left;
+}
+
+p {
+    color: antiquewhite;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+a {
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: antiquewhite;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Account } from '../account.model';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-register',
@@ -8,24 +10,32 @@ import { Component, OnInit } from '@angular/core';
 
 export class RegisterComponent implements OnInit {
 
-  registerForm: any;
   registerTitle = "REGISTER";
   regUsername = "";
+  regEmail = "";
   regFirst = "";
   regLast = "";
   address = "";
   phoneNumber = "";
   regPassword = "";
-  
-  constructor() { }
+
+  constructor(public accountService: AccountService) { }
 
   ngOnInit(): void {
   }
 
-  onRegister(){
-    if(this.regUsername === ''){
-      console.log("Username required!");
+  onRegister() {
+    alert("Account Created Successfully!");
+    const account: Account = {
+      regUsername: this.regUsername,
+      regEmail: this.regEmail,
+      regFirst: this.regFirst,
+      regLast: this.regLast,
+      address: this.address,
+      phoneNumber: this.phoneNumber,
+      regPassword: this.regPassword
     }
+    this.accountService.addAccount(account);
   }
 
 }

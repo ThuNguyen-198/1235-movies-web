@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light navbar-expand-md justify-content-md-center justify-content-start" style="background-color: rgba(255, 255, 255, 0.18);">
+        
+  <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+    <a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="" routerLink="/home">
+        <h3 style="color: bisque;">1235Movies</h3>
+    </a>
+  </div>
+
+  <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+    <img src="assets/images/icons8-film-reel-100.png" style="filter: invert(70%); height:50px;">
+  </div>
+
+  <div class="navbar-collapse collapse justify-content-end align-items-center">
+    <button type="button" *ngIf="!userLoggedIn" class="btn btn-outline-info" style="color: antiquewhite; margin-left: 10px; padding:5px; width:70px;" routerLink="/login">
+      Login
+    </button>   
+    <button type="button" *ngIf="!userLoggedIn" class="btn btn-outline-warning" style="color: antiquewhite; margin-left: 10px; padding:5px; width:70px;" routerLink="/register">
+      Register
+    </button> 
+    <h2 style="font-size: 13px; padding-right: 15px; color:bisque; margin-bottom: 0;" *ngIf="userLoggedIn">Welcome, {{username}}</h2>
+    <img *ngIf="userLoggedIn" class="rounded-circle shadow-4-strong" alt="User Profile" src="assets/images/user-profile.png" 
+        style="height:50px; width:50px;"/> 
+  </div> 
+
+</nav>

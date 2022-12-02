@@ -17,5 +17,15 @@ export class TicketBookingComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSubmit(): void {
+
+    console.log("it submitted");
+  }
+
+  onItemChange(value: string): void {
+
+    console.log("value of radio button is: " + value);
+  }
   
 }

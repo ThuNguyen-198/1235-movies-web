@@ -36,6 +36,7 @@ import { StarRatingModule } from 'angular-star-rating';
 import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
 import { FilterPipe } from './homepage/filter.pip';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { AddMovieComponent } from './admin/add-movie/add-movie.component';
 
 @NgModule({
 
@@ -47,7 +48,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     MovieDetailsComponent,
     HeaderBarComponent,
     TicketBookingComponent,
-    FilterPipe
+    FilterPipe,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
+    NgxMaskModule.forRoot(),
     StarRatingModule.forRoot(),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

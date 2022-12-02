@@ -24,3 +24,54 @@ h1 {
 .form-check-label {
     color: #4a4a49;
 }
+
+p {
+    width: fit-content;
+}
+
+.accordion-item {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.form-check-label {
+    color: antiquewhite;
+}
+
+.accordion-button {
+    font-weight: bold;
+}
+
+span {
+    padding: 20px; 
+    color: antiquewhite; 
+    font-weight: bold;
+    font-size: 20px;
+    width: max-content;
+}
+
+h1,h2,h3,h4,p {
+    color: antiquewhite;
+}
+
+.card-header {
+    border-color: white;
+}
+
+.form-label {
+    color: antiquewhite;
+}
+
+.card {
+    background-color:rgba(0, 0, 0, 0.6); border-color: white;
+}
+
+.card-body {
+    background-color:rgba(0, 0, 0, 0.6); 
+    border-color: white;
+}
+
+ul li {
+    background-color:transparent; 
+    border-color: white;
+    color: antiquewhite;
+}

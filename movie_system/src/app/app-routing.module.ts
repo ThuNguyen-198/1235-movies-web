@@ -6,13 +6,15 @@ import { LoginComponent } from "./auth/login/login.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
 import { RegisterComponent } from "./auth/register/register.component";
 import { TicketBookingComponent } from "./ticket-booking/ticket-booking.component";
+import { AddMovieComponent } from "./admin/add-movie/add-movie.component";
 
 const routes: Routes = [
-    { path: 'home', component: HomepageComponent },
+    { path: '', component: HomepageComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: '', component: MovieDetailsComponent },
+    { path: 'movie-details', component: MovieDetailsComponent },
     { path: 'booking', component: TicketBookingComponent },
+    { path: 'add-movie', component: AddMovieComponent }
 ];
 
 @NgModule({

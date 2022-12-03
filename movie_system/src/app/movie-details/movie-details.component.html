@@ -2,60 +2,78 @@
     url('assets/images/bg.jpg');background-size: cover; 
     height:100%; overflow: auto; opacity: 75%; 
     display: flex; flex-direction: column;">
-    <app-header-bar></app-header-bar>
+  <app-header-bar></app-header-bar>
 
-    <div class="row h-100 w-100">
-        <div class="col" style="padding-top: 300px; padding-left: 40px;">
-            <h1 style="margin-bottom: 20px;">{{movieTitle}}</h1>
-            <div class="row align-items-center" style="margin-bottom: 50px;">
-              <div class="col-4">
-                <star-rating [starType]="'svg'" [rating]="rating" [step]="0.5" [showHalfStars]="true" [readOnly]="true"></star-rating>
-              </div>
-              <div class="col-7">
-                  <button class="btn btn-outline-light" style="font-size: 15px; font-weight: bold;">
-                      <a routerLink="/booking" style="text-decoration: none; color: antiquewhite;">Book</a>
-                  </button>
-              </div>
-            </div>
-
-            <div class="row" style="margin-right: 20px; margin-bottom: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px;" *ngFor="let review of reviews">
-              <i class="material-icons-outlined" style="color: antiquewhite">
-                format_quote
-              </i>
-              <p style="color: antiquewhite;">{{review}}</p>
-            </div>
-
-            <div class="row" *ngIf="openReview" style="margin-right: 20px; margin-bottom: 10px;">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="row" style="margin-right: 20px;">
-              <button class="btn btn-outline-light" (click)="onReview()">
-                <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}}</a>
-              </button>
-            </div>
+  <div class="row h-100 w-100">
+    <div class="col" style="padding-top: 300px; padding-left: 40px;">
+      <!-- {{moviePassed.original_title}} -->
+      <h1 style="margin-bottom: 20px;"></h1>
+      <div class="row align-items-center" style="margin-bottom: 50px;">
+        <div class="col-4">
+          <star-rating [starType]="'svg'" [rating]="rating" [step]="0.5" [showHalfStars]="true" [readOnly]="true">
+          </star-rating>
         </div>
-
-        <div class="col text-start w-100" style="background-color: rgba(0, 0, 0, 0.5); padding-top: 20px; padding-bottom: 150px;">
-
-                <div class="row text-start">
-                    <img src="assets/images/marcel-background.jpg" style="padding: 50px;">
-                    <div class="col-7"><p>Animation, Mockumentary, Drama, Family</p></div>
-                    <div class="col-2"><p>1h30m</p></div>
-                </div>    
-            
-
-            <div class="row text-start">
-                <p style="font-weight: normal;">Marcel is an adorable one-inch-tall shell who ekes out a colorful existence with his grandmother Connie and their pet lint, Alan. Once part of a sprawling community of shells, they now live alone as the sole survivors of a mysterious tragedy. But when a documentary filmmaker discovers them amongst the clutter of his Airbnb, the short film he posts online brings Marcel millions of passionate fans, as well as unprecedented dangers and a new hope at finding his long-lost family. A beloved character gets his big-screen debut in this hilarious and heartwarming story about finding connection in the smallest corners.</p>
-            </div>
-
-            <div class="row" style="padding-top: 10px;">
-                <div class="col text-center" *ngFor="let cast of casts">
-                    <img class="rounded-circle shadow-4-strong" src={{cast.picture_path}} style="height: 50%; width: 60%;"/>
-                    <p style="margin-bottom: 0; margin-top: 10px;">{{cast.name}}</p>
-                    <p>{{cast.role}}</p>
-                </div>
-            </div>
+        <div class="col-7">
+          <button class="btn btn-outline-light" style="font-size: 15px; font-weight: bold;">
+            <a routerLink="/booking" style="text-decoration: none; color: antiquewhite;">Book</a>
+          </button>
         </div>
       </div>
+
+      <div class="row"
+        style="margin-right: 20px; margin-bottom: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px;"
+        *ngFor="let review of reviews">
+        <i class="material-icons-outlined" style="color: antiquewhite">
+          format_quote
+        </i>
+        <p style="color: antiquewhite;">{{review}}</p>
+      </div>
+
+      <div class="row" *ngIf="openReview" style="margin-right: 20px; margin-bottom: 10px;">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="row" style="margin-right: 20px;" *ngIf="userIsAuthenticated">
+        <button class="btn btn-outline-light" (click)="onReview()">
+          <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}}</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="col text-start w-100"
+      style="background-color: rgba(0, 0, 0, 0.5); padding-top: 20px; padding-bottom: 150px;">
+
+      <div class="row text-start">
+        <img src="assets/images/marcel-background.jpg" style="padding: 50px;">
+        <!-- "{{'https://image.tmdb.org/t/p/w300' + moviePassed.poster_path}}" -->
+        <div class="col-7">
+          <p>Animation, Mockumentary, Drama, Family</p>
+        </div>
+        <div class="col-2">
+          <p>1h30m</p>
+        </div>
+      </div>
+
+
+      <div class="row text-start">
+        <!-- {{moviePassed.overview}} -->
+        <p style="font-weight: normal;">
+          <!-- Marcel is an adorable one-inch-tall shell who ekes out a colorful existence with
+          his grandmother Connie and their pet lint, Alan. Once part of a sprawling community of shells, they now live
+          alone as the sole survivors of a mysterious tragedy. But when a documentary filmmaker discovers them amongst
+          the clutter of his Airbnb, the short film he posts online brings Marcel millions of passionate fans, as well
+          as unprecedented dangers and a new hope at finding his long-lost family. A beloved character gets his
+          big-screen debut in this hilarious and heartwarming story about finding connection in the smallest corners. -->
+        </p>
+      </div>
+
+      <div class="row" style="padding-top: 10px;">
+        <div class="col text-center" *ngFor="let cast of casts">
+          <img class="rounded-circle shadow-4-strong" src={{cast.picture_path}} style="height: 50%; width: 60%;" />
+          <p style="margin-bottom: 0; margin-top: 10px;">{{cast.name}}</p>
+          <p>{{cast.role}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

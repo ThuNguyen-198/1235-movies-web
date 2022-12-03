@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
             return [];
         }
         if (!searchText) {
-            this.movieService.getMovies();
+            this.movieService.getMoviesUpdated();
         }
         searchText = searchText.toLowerCase();
 

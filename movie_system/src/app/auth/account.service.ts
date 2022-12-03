@@ -32,7 +32,6 @@ export class AccountService {
                 this.authStatusListener.next(true);
                 // alert("login successfully")
             })
-
     }
 
 } 

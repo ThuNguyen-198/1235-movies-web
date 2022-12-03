@@ -9,12 +9,28 @@ export class FilterPipe implements PipeTransform {
             return [];
         }
         if (!searchText) {
-            this.movieService.getMovies();
+            this.movieService.getMoviesUpdated();
         }
         searchText = searchText.toLowerCase();
 
         return items.filter(it => {
             return it.title.toLowerCase().includes(searchText);
+        })
+    }
+
+    getCurrentMovies(items: Movie[], date: Date): any[] {
+
+        return items.filter(it => {
+            const release_date = new Date(it.release_date)
+            return release_date == date || release_date < date;
+        })
+    }
+
+    getUpComingMovies(items: Movie[], date: Date): any[] {
+
+        return items.filter(it => {
+            const release_date = new Date(it.release_date)
+            return release_date > date;
         })
     }
 }

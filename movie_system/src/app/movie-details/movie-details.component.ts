@@ -1,12 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
+import { AccountService } from '../auth/account.service';
+import { Movie } from '../homepage/movie.model';
+import { HomepageComponent } from '../homepage/homepage.component';
+import { MovieService } from '../homepage/movie.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
-export class MovieDetailsComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit, OnDestroy {
+  userIsAuthenticated = false;
+  private authStatusSubs: Subscription = Subscription.EMPTY;
+  private original_title: string = "";
+  private moviePassed = {} as Movie;
+
+  // private moviePassed = <Movie>{
+  //   adult: false,
+  //   backdrop_path = "",
+  //   genre_ids =,
+  //   original_language= "",
+  //   original_title= "",
+  //   overview= "",
+  //   popularity = 0,
+  //   poster_path= "",
+  //   release_date= "",
+  //   title= "",
+  //   video: false,
+  //   vote_average = 0,
+  //   vote_count = 0,
+  //   show_times: [],
+  //   theaters: [],
+  //   ticket_price= 0
+  // };
+
   movieTitle = "Marcel the Shell With Shoes On";
   rating = 4.5;
   reviews = ["Great movie! Can't believe I cried about 10 times.", "Definitly going to watch this again!"];
@@ -15,26 +45,42 @@ export class MovieDetailsComponent implements OnInit {
     {
       "name": "Jenny Slate",
       "picture_path": "assets/images/jenny-slate.jpg",
-      "role" : "Marcel"
+      "role": "Marcel"
     },
     {
       "name": "Dean Fleischer-Camp",
       "picture_path": "assets/images/dean-fleicher.jpg",
-      "role" : "Dean"
+      "role": "Dean"
     },
     {
       "name": "Nathan Fielder",
       "picture_path": "assets/images/nathan-fielder.jpg",
-      "role" : "Justin"
+      "role": "Justin"
     }
   ];
-  
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(public accountService: AccountService, public movieService: MovieService,
+    public route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.original_title = paramMap.get('movieTitle')!;
+      // this.moviePassed = this.movieService.getMovie(this.original_title);
+      this.moviePassed = {} as Movie
+
+    })
+
+    this.authStatusSubs = this.accountService.getAuthStatusListener().subscribe(
+      isUserAuthenticated => {
+        this.userIsAuthenticated = isUserAuthenticated;
+      });
   }
 
-  onReview(){
+  onReview() {
     this.openReview = !this.openReview;
+  }
+
+  ngOnDestroy() {
+    this.authStatusSubs.unsubscribe();
   }
 }

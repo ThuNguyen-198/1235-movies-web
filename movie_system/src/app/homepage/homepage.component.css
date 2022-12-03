@@ -3,7 +3,7 @@ p {
 }
 
 .container{
-    filter: drop-shadow(3px 3px 3px black);
+    filter: drop-shadow(0px 2px 2px black);
 }
 
 h1 {
@@ -24,14 +24,23 @@ h1 {
     color: bisque;
 }
 
-@mixin custom-tabs-theme() {
-  .mat-tab-label-active  {
-    border-width: 9px;
-    border-style: solid;
-    border-color: orange;
-  }
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color:black;
+    background-color: rgba(255, 255, 255);
+    font-size: 17px;
+    border-bottom: coral ;
+}
 
-  .mat-tab-label {
-    color: antiquewhite;
-  }
+::ng-deep .mat-tab-list .mat-tab-label {
+    color:white;
+    background-color: transparent;
+    font-size: 17px;
+}
+
+::ng-deep .mat-tab-group {
+  font-family: 'Inria Sans', sans-serif;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: black !important;
 }

@@ -9,7 +9,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
-
+import {MatTab, MatTabsModule} from '@angular/material/tabs'; 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -56,6 +56,7 @@ import { AddMovieComponent } from './admin/add-movie/add-movie.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTabsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,

@@ -20,6 +20,13 @@
     <h2 style="font-size: 13px; padding-right: 15px; color:bisque; margin-bottom: 0;" *ngIf="userLoggedIn">Welcome, {{username}}</h2>
     <img *ngIf="userLoggedIn" class="rounded-circle shadow-4-strong" alt="User Profile" src="assets/images/user-profile.png" 
         style="height:50px; width:50px;"/> 
+    <button type="button" class="btn btn-light dropdown-toggle" *ngIf="userLoggedIn" style="color: antiquewhite; margin-left: 10px; padding:5px;" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="material-icons-outlined align-items-center" style="color: antiquewhite; font-size: medium;">menu</i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-right: 10px;">
+      <li><a class="dropdown-item" routerLink="/add-movie">Add show</a></li>
+      <li><a class="dropdown-item" href="#">Current status report</a></li>
+    </ul>
   </div> 
 
 </nav>

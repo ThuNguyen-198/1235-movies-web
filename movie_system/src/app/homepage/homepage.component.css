@@ -23,3 +23,15 @@ h1 {
     font-size: 70px; 
     color: bisque;
 }
+
+@mixin custom-tabs-theme() {
+  .mat-tab-label-active  {
+    border-width: 9px;
+    border-style: solid;
+    border-color: orange;
+  }
+
+  .mat-tab-label {
+    color: antiquewhite;
+  }
+}

@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'home', component: HomepageComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'movie-details', component: MovieDetailsComponent },
+    { path: 'movie-details/:movieTitle', component: MovieDetailsComponent },
     { path: 'booking', component: TicketBookingComponent },
     { path: '', component: AddMovieComponent }
 ];

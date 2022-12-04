@@ -11,7 +11,7 @@
   <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
     <img src="assets/images/icons8-film-reel-100.png" style="filter: invert(70%); height:50px;">
   </div>
-
+  <!-- -------------------------------------Login/Register---------------------------------------  -->
   <div class="navbar-collapse collapse justify-content-end align-items-center" *ngIf="!userIsAuthenticated">
     <button type="button" class="btn btn-outline-info"
       style="color: antiquewhite; margin-left: 10px; padding:5px; width:70px;" routerLink="/login">
@@ -22,17 +22,19 @@
       Register
     </button>
   </div>
-
+  <!-- -------------------------------------Login/Register---------------------------------------  -->
+  <!-- -------------------------------------Logged In---------------------------------------  -->
   <div class="navbar-collapse collapse justify-content-end align-items-center" *ngIf="userIsAuthenticated">
     <h2 style="font-size: 13px; padding-right: 15px; color:bisque; margin-bottom: 0;">
       Welcome,
       {{username}}</h2>
     <img class="rounded-circle shadow-4-strong" alt="User Profile" src="assets/images/user-profile.png"
       style="height:50px; width:50px;" />
-    <button type="button" class="btn btn-outline-info"
+    <button type="button" class="btn btn-outline-info " (click)="onLogout()" routerLink=""
       style="color: antiquewhite; margin-left: 10px; padding:5px; width:70px;">
       Logout
     </button>
   </div>
+  <!-- -------------------------------------Logged In---------------------------------------  -->
 
 </nav>

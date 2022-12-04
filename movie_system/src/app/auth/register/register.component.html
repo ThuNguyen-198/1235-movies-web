@@ -1,4 +1,5 @@
-<div style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url('assets/images/bg.jpg'); background-size: cover; height:100%; overflow: auto;">
+<div
+    style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url('assets/images/bg.jpg'); background-size: cover; height:100%; overflow: auto;">
     <app-header-bar></app-header-bar>
     <div class="container text-center" style="padding-bottom: 20px;">
 
@@ -7,76 +8,88 @@
             <h2 style="padding-top:20px; color: white;">Welcome to 1235Movies!</h2>
         </div>
 
-        <div class="row justify-content-center"> 
+        <div class="row justify-content-center">
             <h2 style="color: white">{{registerTitle}}</h2>
 
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+            <div class="row justify-content-center"
+                style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
                         <label for="regEmail"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="regEmail" id="regEmail" placeholder="Email" required="">
+                        <input type="text" class="form-control p-3" [(ngModel)]="regEmail" type="email" id="regEmail"
+                            placeholder="Email" required="">
                     </div>
                 </div>
             </div>
 
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+            <div class="row justify-content-center"
+                style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
                         <label for="regUsername"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="regUsername" id="regUsername" placeholder="Username" required="">
+                        <input type="text" class="form-control p-3" [(ngModel)]="regUsername" id="regUsername"
+                            placeholder="Username" required="">
                     </div>
                 </div>
             </div>
 
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+            <div class="row justify-content-center"
+                style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
                         <label for="regPassword"></label>
-                        <input type="password" class="form-control p-3" id="regPassword" placeholder="Password" required="">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
-                <div class="col-lg-10 col-lg-4">
-                    <div class="form-group">
-                        <label for="registerFirst"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="regFirst" id="regFirst" aria-describedby="emailHelp" placeholder="First name">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
-                <div class="col-lg-10 col-lg-4">
-                    <div class="form-group">
-                        <label for="registerLast"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="regLast" id="regLast" aria-describedby="emailHelp" placeholder="Last name">
+                        <input type="password" class="form-control p-3" id="regPassword" placeholder="Password"
+                            required="" [(ngModel)]="regPassword">
                     </div>
                 </div>
             </div>
 
-            <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+            <div class="row justify-content-center"
+                style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
-                        <label for="address"></label>
-                        <input type="text" class="form-control p-3" [(ngModel)]="address" id="address" aria-describedby="emailHelp" placeholder="Address">
+                        <label for="registerFirst"></label>
+                        <input type="text" class="form-control p-3" [(ngModel)]="regFirst" id="regFirst"
+                            aria-describedby="emailHelp" placeholder="First name">
                     </div>
                 </div>
             </div>
-            
+
+            <div class="row justify-content-center"
+                style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+                <div class="col-lg-10 col-lg-4">
+                    <div class="form-group">
+                        <label for="registerLast"></label>
+                        <input type="text" class="form-control p-3" [(ngModel)]="regLast" id="regLast"
+                            aria-describedby="emailHelp" placeholder="Last name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center"
+                style="background-color: transparent; padding-top: 0%; padding-bottom: 0%;">
+                <div class="col-lg-10 col-lg-4">
+                    <div class="form-group">
+                        <label for="address"></label>
+                        <input type="text" class="form-control p-3" [(ngModel)]="address" id="address"
+                            aria-describedby="emailHelp" placeholder="Address">
+                    </div>
+                </div>
+            </div>
+
             <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%;">
                 <div class="col-lg-10 col-lg-4">
                     <div class="form-group">
                         <label for="phoneNumber"></label>
-                        <input type="text" class="form-control p-3" id="phoneNumber" placeholder="Phone Number" mask='(000) 000-0000'>
+                        <input type="text" class="form-control p-3" id="phoneNumber" placeholder="Phone Number"
+                            mask='(000) 000-0000' [(ngModel)]="phoneNumber">
                     </div>
                 </div>
-            </div>  
+            </div>
 
             <div class="row justify-content-center" style="background-color: transparent; padding-top: 0%;">
                 <div class="col-lg-6 col-lg-4">
-                    <button class="form-control btn btn-primary submit p-3"
-                    (click)="onRegister()">Register
+                    <button class="form-control btn btn-primary submit p-3" (click)="onRegister()">Register
                     </button>
                 </div>
             </div>
@@ -86,5 +99,5 @@
             </div>
 
         </div>
-    </div> 
+    </div>
 </div>

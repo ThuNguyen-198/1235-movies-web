@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../account.model';
 import { AccountService } from '../account.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    alert("Account Created Successfully!");
     const account: Account = {
       regUsername: this.regUsername,
       regEmail: this.regEmail,
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
       phoneNumber: this.phoneNumber,
       regPassword: this.regPassword
     }
-    this.accountService.addAccount(account);
+    this.accountService.createAccount(account);
   }
 
 }

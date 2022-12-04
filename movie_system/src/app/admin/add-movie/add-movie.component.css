@@ -1,0 +1,37 @@
+h1 {
+    font-family: 'Permanent Marker', cursive; 
+    color: bisque; 
+    font-size: 50px; 
+    text-align: left;
+    width: fit-content;
+}
+
+p {
+    width: fit-content;
+}
+
+.material-icons-outlined {
+    width: 90px;
+    font-size: 70px; 
+    color: bisque;
+}
+
+.btn.btn-outline-light {
+    font-size: 20px; 
+    font-weight: bold; 
+    width:100px; margin-right: 10px;
+}
+
+.btn.btn-outline-info {
+    margin-top: 10px;
+    font-size: small;
+    margin-right: 13px;
+    width: 110px;
+    align-items: center;
+}
+
+form div.row {
+    padding-left: 20px;
+    padding-right: 20px;
+
+}

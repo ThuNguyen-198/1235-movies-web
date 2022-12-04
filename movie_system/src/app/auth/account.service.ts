@@ -6,7 +6,8 @@ import { Auth } from "./auth.model";
 @Injectable({ providedIn: "root" })
 export class AccountService {
     private token: string = "";
-    private authStatusListener = new Subject<boolean>();
+    // isAuthenticated = false
+    authStatusListener = new Subject<boolean>();
 
 
     constructor(private http: HttpClient) { }
@@ -14,8 +15,16 @@ export class AccountService {
         return this.token;
     }
 
+    // getAuthenticationStatus() {
+    //     return this.isAuthenticated
+    // }
+
     getAuthStatusListener() {
         return this.authStatusListener.asObservable();
+    }
+
+    setAuthStatusListener() {
+        this.authStatusListener.next(false);
     }
 
     createAccount(account: Account) {
@@ -30,8 +39,12 @@ export class AccountService {
             .subscribe((response) => {
                 this.token = response.tokenFromServer;
                 this.authStatusListener.next(true);
-                // alert("login successfully")
+                localStorage.setItem("isAuthenticated", "true")
             })
     }
+
+    // logout() {
+    //     this.authStatusListener.next(false)
+    // }
 
 } 

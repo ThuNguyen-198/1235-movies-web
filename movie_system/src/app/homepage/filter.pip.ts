@@ -4,12 +4,12 @@ import { MovieService } from "./movie.service";
 @Pipe({ name: 'moviesFilter' })
 export class FilterPipe implements PipeTransform {
     constructor(public movieService: MovieService) { }
-    transform(items: Movie[], searchText: string, originalItems: Movie[]): any[] {
+    transform(items: Movie[], searchText: string): Movie[] {
         if (!items) {
             return [];
         }
         if (!searchText) {
-            this.movieService.getMoviesUpdated();
+            return [...items]
         }
         searchText = searchText.toLowerCase();
 
@@ -18,19 +18,24 @@ export class FilterPipe implements PipeTransform {
         })
     }
 
-    getCurrentMovies(items: Movie[], date: Date): any[] {
-
+    getCurrentMovies(items: Movie[], date: Date): Movie[] {
+        if (!items) {
+            return [];
+        }
         return items.filter(it => {
             const release_date = new Date(it.release_date)
             return release_date == date || release_date < date;
         })
     }
 
-    getUpComingMovies(items: Movie[], date: Date): any[] {
-
+    getUpComingMovies(items: Movie[], date: Date): Movie[] {
+        if (!items) {
+            return [];
+        }
         return items.filter(it => {
             const release_date = new Date(it.release_date)
             return release_date > date;
         })
     }
+
 }

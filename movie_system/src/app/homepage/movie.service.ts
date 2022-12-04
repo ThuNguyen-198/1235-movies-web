@@ -20,10 +20,6 @@ export class MovieService {
         return this.moviesUpdated.asObservable();
     }
 
-    getMovie(original_title: string) {
-        return { ...this.movies.find(movie => movie.original_title === original_title) }
-    }
-
     setMovieTitle(title: string) {
         this.movieTitle = title;
     }

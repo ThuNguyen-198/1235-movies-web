@@ -15,8 +15,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class MovieDetailsComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authStatusSubs: Subscription = Subscription.EMPTY;
-  private original_title: string = "";
-  private moviePassed = {} as Movie;
+  original_title: string = "";
+  moviePassed!: Movie;
 
   // private moviePassed = <Movie>{
   //   adult: false,
@@ -63,17 +63,24 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     public route: ActivatedRoute) { }
 
   ngOnInit() {
+    // Pass data to detail page
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.original_title = paramMap.get('movieTitle')!;
-      // this.moviePassed = this.movieService.getMovie(this.original_title);
-      this.moviePassed = {} as Movie
-
+      this.movieService.getMoviesUpdated().subscribe((movies) => {
+        for (let i = 0; i < movies.length; i++) {
+          if (movies[i].original_title == this.original_title) {
+            this.moviePassed = movies[i]
+          }
+        }
+      })
     })
 
-    this.authStatusSubs = this.accountService.getAuthStatusListener().subscribe(
-      isUserAuthenticated => {
-        this.userIsAuthenticated = isUserAuthenticated;
-      });
+    // this.userIsAuthenticated = this.accountService.getAuthenticationStatus()
+
+    // this.authStatusSubs = this.accountService.getAuthStatusListener().subscribe(
+    //   isUserAuthenticated => {
+    //     this.userIsAuthenticated = isUserAuthenticated;
+    //   });
   }
 
   onReview() {

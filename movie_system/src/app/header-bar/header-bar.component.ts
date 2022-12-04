@@ -7,10 +7,10 @@ import { AccountService } from '../auth/account.service';
   templateUrl: './header-bar.component.html',
   styleUrls: ['./header-bar.component.css']
 })
-export class HeaderBarComponent implements OnInit, OnDestroy {
+export class HeaderBarComponent implements OnInit {
   username = 'smmr.rrr';
   userIsAuthenticated = false;
-  private authListenerSubs: Subscription = Subscription.EMPTY;
+  private authListenerSubs!: Subscription;
 
   constructor(public accountService: AccountService) {
   }
@@ -20,9 +20,22 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       })
+
+    if (localStorage.getItem("isAuthenticated") == "true") {
+      this.userIsAuthenticated = true
+    }
+    else {
+      this.userIsAuthenticated = false
+    }
+
   }
 
-  ngOnDestroy(): void {
-    this.authListenerSubs.unsubscribe();
+  onLogout() {
+    this.accountService.setAuthStatusListener()
+    localStorage.clear()
   }
+
+  // ngOnDestroy(): void {
+  //   this.authListenerSubs.unsubscribe();
+  // }
 }

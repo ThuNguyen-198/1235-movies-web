@@ -23,5 +23,6 @@ export class LoginComponent {
     onLogin() {
         const auth: Auth = { regUsername: this.username, regPassword: this.password }
         this.accountService.login(auth);
+
     }
 }

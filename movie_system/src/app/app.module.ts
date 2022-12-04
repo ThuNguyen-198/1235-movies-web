@@ -37,6 +37,7 @@ import { TicketBookingComponent } from './ticket-booking/ticket-booking.componen
 import { FilterPipe } from './homepage/filter.pip';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AddMovieComponent } from './admin/add-movie/add-movie.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 
@@ -63,6 +64,7 @@ import { AddMovieComponent } from './admin/add-movie/add-movie.component';
     FontAwesomeModule,
     NgxMaskModule.forRoot(),
     StarRatingModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     FilterPipe],

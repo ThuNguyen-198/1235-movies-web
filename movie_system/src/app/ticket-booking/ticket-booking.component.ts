@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MovieService } from '../homepage/movie.service';
 import { Movie } from '../homepage/movie.model';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-booking',
@@ -18,13 +19,15 @@ export class TicketBookingComponent implements OnInit {
   tickets = 0;
   total: number = 0;
   subTotal: number = 0
-  shipping: number = 0;
+  tax: number = 0;
   movieToBook!: Movie
   movieTitle = ""
+  paymentType = "";
 
-  constructor(public movieService: MovieService, public route: ActivatedRoute) { }
+  constructor(public movieService: MovieService, public route: ActivatedRoute,  @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
+    
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.movieTitle = paramMap.get('movieTitle')!;
       this.movieService.getMoviesUpdated().subscribe((movies) => {
@@ -38,7 +41,6 @@ export class TicketBookingComponent implements OnInit {
   }
 
   onSubmit(): void {
-
     console.log("SUBMITTED: " + this.selection);
   }
 
@@ -46,19 +48,27 @@ export class TicketBookingComponent implements OnInit {
     this.selection = this.movieToBook.title + ' - ' + (e.target as HTMLInputElement).value;
   }
 
+  onSelectPayment(e: Event) : void {
+    this.paymentType = (e.target as HTMLInputElement).value;
+  }
+
   onAddTickets() {
     this.tickets += 1;
     this.subTotal = this.tickets * this.movieToBook.ticket_price
-    this.shipping = this.tickets * this.movieToBook.ticket_price * 0.08;
-    this.total = this.shipping + this.tickets * this.movieToBook.ticket_price;
+    this.tax = this.tickets * this.movieToBook.ticket_price * 0.0825;
+    this.total = this.tax + this.tickets * this.movieToBook.ticket_price;
+
   }
 
   onSubtractTickets() {
     this.tickets -= 1;
     this.subTotal = this.tickets * this.movieToBook.ticket_price
-    this.shipping = this.tickets * 11.25 * 0.02;
-    this.total = this.shipping + this.tickets * 11.25;
+    this.tax = this.tickets * this.movieToBook.ticket_price * 0.0825;
+    this.total = this.tax + this.tickets * this.movieToBook.ticket_price;
   }
 
+  goToUrl(): void {
+    this.document.location.href = 'https://www.paypal.com/signin';
+  }
 
 }

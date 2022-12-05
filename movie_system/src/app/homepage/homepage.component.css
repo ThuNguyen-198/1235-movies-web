@@ -44,3 +44,8 @@ h1 {
 ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
   background-color: black !important;
 }
+
+.btn.btn-outline-light {
+    margin-left: 5px;
+}
+

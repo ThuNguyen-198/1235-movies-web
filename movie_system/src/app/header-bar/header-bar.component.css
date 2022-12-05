@@ -50,3 +50,19 @@ h3 {
 ul {
     list-style: none;
 }
+
+material-symbols-outlined {
+    margin-bottom: none;
+}
+
+.btn.btn-outline-info {
+    padding: 5px;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.btn.btn-secondary {
+    padding: 5px;
+    align-items: center;
+    margin-left: 10px;
+}

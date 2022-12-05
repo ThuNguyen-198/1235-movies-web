@@ -9,12 +9,12 @@ import { TicketBookingComponent } from "./ticket-booking/ticket-booking.componen
 import { AddMovieComponent } from "./admin/add-movie/add-movie.component";
 
 const routes: Routes = [
-    { path: 'home', component: HomepageComponent },
+    { path: '', component: HomepageComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'movie-details/:movieTitle', component: MovieDetailsComponent },
     { path: 'booking', component: TicketBookingComponent },
-    { path: '', component: AddMovieComponent }
+    { path: 'add-movie', component: AddMovieComponent }
 ];
 
 @NgModule({

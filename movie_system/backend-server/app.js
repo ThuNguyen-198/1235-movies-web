@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const checkAuth = require('./middleware/check-auth');
+ObjectId = require('mongodb').ObjectID;
 
 mongoose.connect("mongodb+srv://ThuNguyen:teamwork@cluster0.wuh4lin.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
@@ -134,6 +135,21 @@ app.post("/movies", (req, res, next) => {
 
 })
 
+app.post("/deleteMovie", (req, res, next) => {
+    console.log("chut chut" + req.body)
+
+    Movie.findOneAndDelete(req.body, (err, data) => {
+        if (err) {
+            res.status(500).json({
+                message: "ERROR"
+            })
+        } else {
+            res.status(200).json({ message: "Post deleted!" })
+        }
+    })
+
+})
+
 app.use("/movies", (req, res, next) => {
     Movie.find()
         .then(movieList => {
@@ -144,6 +160,24 @@ app.use("/movies", (req, res, next) => {
         })
 })
 
+// app.delete("/movies/:id", (req, res, next) => {
+//     console.log(":id = " + this.params.id)
+//     Movie.findOneAndDelete(this.params.id, (err, data) => {
+//         if (err) {
+//             res.status(500).json({
+//                 message: "ERRRRRRRRR"
+//             })
+//         } else {
+//             res.status(200).json({ message: "Post deleted!" })
+//         }
+
+// Movie.deleteOne({
+//     original_title: req.params.original_title
+// }).then(result => {
+// console.log("app: " + req,  this.param.id)
+//     res.status(200).json({ message: "Post deleted!" })
+//     })
+// })
 // const url = "https://api.themoviedb.org/3/movie/upcoming?api_key=32a493f008c6421b255d91b5cbc139b7&language=en-US&page=10"
 // https.get(url, function (response) {
 //     response.on("data", function (data) {

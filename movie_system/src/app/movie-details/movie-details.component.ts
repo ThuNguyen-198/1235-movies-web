@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { AccountService } from '../auth/account.service';
 import { Movie } from '../homepage/movie.model';
 import { HomepageComponent } from '../homepage/homepage.component';
@@ -17,25 +17,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   private authStatusSubs: Subscription = Subscription.EMPTY;
   original_title: string = "";
   moviePassed!: Movie;
-
-  // private moviePassed = <Movie>{
-  //   adult: false,
-  //   backdrop_path = "",
-  //   genre_ids =,
-  //   original_language= "",
-  //   original_title= "",
-  //   overview= "",
-  //   popularity = 0,
-  //   poster_path= "",
-  //   release_date= "",
-  //   title= "",
-  //   video: false,
-  //   vote_average = 0,
-  //   vote_count = 0,
-  //   show_times: [],
-  //   theaters: [],
-  //   ticket_price= 0
-  // };
 
   movieTitle = "Marcel the Shell With Shoes On";
   rating = 4.5;
@@ -75,6 +56,12 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       })
     })
 
+    if (localStorage.getItem("isAuthenticated") == "true") {
+      this.userIsAuthenticated = true
+    }
+    else {
+      this.userIsAuthenticated = false
+    }
     // this.userIsAuthenticated = this.accountService.getAuthenticationStatus()
 
     // this.authStatusSubs = this.accountService.getAuthStatusListener().subscribe(

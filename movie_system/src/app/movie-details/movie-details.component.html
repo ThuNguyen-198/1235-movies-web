@@ -14,7 +14,8 @@
         </div>
         <div class="col-7">
           <button class="btn btn-outline-light" style="font-size: 15px; font-weight: bold;">
-            <a routerLink="/booking" style="text-decoration: none; color: antiquewhite;">Book</a>
+            <a [routerLink]="['/booking', moviePassed.original_title]"
+              style="text-decoration: none; color: antiquewhite;">Book</a>
           </button>
         </div>
       </div>
@@ -31,9 +32,9 @@
       <div class="row" *ngIf="openReview" style="margin-right: 20px; margin-bottom: 10px;">
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
-      <div class="row" style="margin-right: 20px;" *ngIf="userIsAuthenticated">
-        <button class="btn btn-outline-light" (click)="onReview()">
-          <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}}</a>
+      <div class="row" style="margin-right: 20px;">
+        <button class="btn btn-outline-light" (click)="onReview()" *ngIf="userIsAuthenticated">
+          <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}} </a>
         </button>
       </div>
     </div>

@@ -9,6 +9,7 @@ const accountSchema = mongoose.Schema({
     address: { type: String },
     phoneNumber: { type: String },
     regPassword: { type: String, require: true },
+    isAdmin: { type: String, default: false }
 });
 
 accountSchema.plugin(uniqueValidator);

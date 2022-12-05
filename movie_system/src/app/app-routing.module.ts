@@ -13,8 +13,8 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'movie-details/:movieTitle', component: MovieDetailsComponent },
-    { path: 'booking', component: TicketBookingComponent },
-    { path: '', component: AddMovieComponent }
+    { path: 'booking/:movieTitle', component: TicketBookingComponent },
+    { path: 'add-movie', component: AddMovieComponent }
 ];
 
 @NgModule({

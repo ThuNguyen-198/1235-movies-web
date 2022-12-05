@@ -47,6 +47,7 @@ export class AccountService {
 
     addMovie() {
         const movie: Movie = {
+            "id": "1",
             "adult": false,
             "backdrop_path": "/xMpyAxQSJFrvy4tCmH4uR4LErlj.jpg",
             "genre_ids": '18',
@@ -67,7 +68,7 @@ export class AccountService {
         }
         this.http.post('http://localhost:3000/movies', movie)
             .subscribe((responseData) => {
-                alert("Account created successfully!")
+                alert("Movie created successfully!")
             })
     }
 

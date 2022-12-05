@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   address = "";
   phoneNumber = "";
   regPassword = "";
+  isAdmin = false
 
   constructor(public accountService: AccountService) { }
 
@@ -32,7 +33,8 @@ export class RegisterComponent implements OnInit {
       regLast: this.regLast,
       address: this.address,
       phoneNumber: this.phoneNumber,
-      regPassword: this.regPassword
+      regPassword: this.regPassword,
+      isAdmin: 'false'
     }
     this.accountService.createAccount(account);
   }

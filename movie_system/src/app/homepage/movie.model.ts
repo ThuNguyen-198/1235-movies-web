@@ -1,7 +1,7 @@
 export interface Movie {
     adult: boolean,
     backdrop_path: string,
-    genre_ids?: string,
+    genre_ids: string,
     original_language: string,
     original_title: string,
     overview: string,
@@ -14,5 +14,6 @@ export interface Movie {
     vote_count: number,
     show_times: string[],
     theaters: string[],
-    ticket_price: number
+    ticket_price: number,
+    tickets_sold: number
 }

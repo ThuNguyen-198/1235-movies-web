@@ -8,15 +8,15 @@ import { AccountService } from '../auth/account.service';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
-  username = 'smmr.rrr';
+  username = '';
   userIsAuthenticated = false;
-  private authListenerSubs!: Subscription;
 
   constructor(public accountService: AccountService) {
   }
 
   ngOnInit(): void {
-    this.authListenerSubs = this.accountService.getAuthStatusListener()
+    // ---------Setup User Authentication Status---------
+    this.accountService.getAuthStatusListener()
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       })
@@ -27,6 +27,16 @@ export class HeaderBarComponent implements OnInit {
     else {
       this.userIsAuthenticated = false
     }
+    // ---------Setup User Authentication Status---------
+
+    // ---------Setup User Name---------
+    this.accountService.getUserName()
+      .subscribe(username => {
+        this.username = username;
+      })
+
+    this.username = localStorage.getItem("userName")!
+
 
   }
 
@@ -35,7 +45,4 @@ export class HeaderBarComponent implements OnInit {
     localStorage.clear()
   }
 
-  // ngOnDestroy(): void {
-  //   this.authListenerSubs.unsubscribe();
-  // }
 }

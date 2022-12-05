@@ -2,24 +2,25 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const movieSchema = mongoose.Schema({
-    adult: { type: boolean },
-    backdrop_path: { type: string },
-    genre_ids: { type: string },
-    original_language: { type: string },
-    original_title: { type: string },
-    overview: { type: string },
-    popularity: { type: number },
-    poster_path: { type: string },
-    release_date: { type: string },
-    title: { type: string },
-    video: { type: boolean },
-    vote_average: { type: number },
-    vote_count: { type: number },
-    show_times: { type: string[{ type: string }] },
-    theaters: { type: string[{ type: string }] },
-    ticket_price: { type: number }
+    adult: { type: Boolean },
+    backdrop_path: { type: String },
+    genre_ids: { type: String },
+    original_language: { type: String },
+    original_title: { type: String },
+    overview: { type: String },
+    popularity: { type: Number },
+    poster_path: { type: String },
+    release_date: { type: String },
+    title: { type: String },
+    video: { type: Boolean },
+    vote_average: { type: Number },
+    vote_count: { type: Number },
+    show_times: { type: [String] },
+    theaters: { type: [String] },
+    ticket_price: { type: Number, default: 15 },
+    tickets_sold: { type: Number }
 });
 
-accountSchema.plugin(uniqueValidator);
+movieSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Movie', movieSchema);

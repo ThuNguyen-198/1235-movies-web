@@ -6,4 +6,5 @@ export interface Account {
     address: string,
     phoneNumber: string,
     regPassword: string
+    isAdmin: string
 }

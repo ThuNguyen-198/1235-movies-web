@@ -7,8 +7,8 @@ export class MovieService {
     private movies: Movie[] = [];
     private moviesUpdated = new Subject<Movie[]>();
     constructor(private http: HttpClient) { }
-    detailMovie = new Subject<Movie>();
     movieTitle = ""
+    movieToBook = new Subject<Movie>()
 
 
     getMoviesUpdated() {
@@ -23,4 +23,5 @@ export class MovieService {
     setMovieTitle(title: string) {
         this.movieTitle = title;
     }
+
 } 

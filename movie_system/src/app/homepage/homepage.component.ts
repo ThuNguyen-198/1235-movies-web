@@ -3,6 +3,7 @@ import { Movie } from './movie.model';
 import { MovieService } from './movie.service';
 import { FilterPipe } from './filter.pip';
 import { Subject } from 'rxjs';
+import { AccountService } from '../auth/account.service';
 
 @Component({
   selector: 'app-homepage',
@@ -15,15 +16,26 @@ export class HomepageComponent implements OnInit {
   searchText = "";
   moviesList: Movie[] = [];
   filteredMovies: Movie[] = [];
+  isAdmin = false
 
-  constructor(public movieService: MovieService, public moviesFilter: FilterPipe) { }
+  constructor(public movieService: MovieService, public moviesFilter: FilterPipe, public accountService: AccountService) { }
 
   ngOnInit(): void {
     this.movieService.getMoviesUpdated().subscribe((movies: Movie[]) => {
       this.moviesList = movies;
       this.filteredMovies = movies
-
     });
+    this.accountService.getisAdmin()
+      .subscribe(isAdmin => {
+        this.isAdmin = isAdmin;
+      })
+
+    if (localStorage.getItem("isAdmin") == "true") {
+      this.isAdmin = true
+    }
+    else {
+      this.isAdmin = false
+    }
   }
 
   getSearchText(event: Event) {
@@ -38,7 +50,6 @@ export class HomepageComponent implements OnInit {
 
 
   getUpcoming() {
-    console.log('call getUpcoming')
     let date = new Date()
     this.filteredMovies = this.moviesFilter.getUpComingMovies([...this.moviesList], date);
   }
@@ -46,8 +57,7 @@ export class HomepageComponent implements OnInit {
     this.filteredMovies = this.moviesList
   }
 
-  onViewDetails() {
-
+  onAddMovie() {
+    this.accountService.addMovie();
   }
-
 }

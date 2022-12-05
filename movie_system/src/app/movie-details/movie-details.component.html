@@ -33,10 +33,10 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="row" style="margin-right: 20px;">
-        <button class="btn btn-outline-light" (click)="userIsAuthenticated ? onReview() : needLogIn">
-          <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}} </a>
+        <button class="btn btn-outline-light" (click)="onReview()">
+          <a *ngIf="userIsAuthenticated" style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}} </a>
         </button>
-        <ng-template #needLogIn>
+        <ng-template [ngIf]="!userIsAuthenticated">
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">

@@ -1,0 +1,23 @@
+.container{
+    filter: drop-shadow(0px 2px 2px black);
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive; 
+    color: bisque; 
+    font-size: 50px; 
+    text-align: left;
+    width: fit-content;
+}
+
+.material-icons-outlined {
+    width: 90px;
+    font-size: 70px; 
+    color: bisque;
+}
+
+.container.mt-4.align-items-center{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+}

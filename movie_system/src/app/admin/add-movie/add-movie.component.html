@@ -60,6 +60,11 @@
                                     <label for="showtime">Showtime</label>
                                     <input formControlName="showtimeList" type="time" class="form-control" id="showtime">
                                 </div>
+                                <div class="row mt-3">
+                                    <label for="price">Price</label>
+                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" id="price">
+                                </div>
+                                
                                 <div class="row mt-3 text-start">
                                     <p style="padding-left: 0; font-weight: bold;">{{inputTheater}}</p>
                                     <p *ngFor="let time of inputShowtimes" style="color:antiquewhite; margin-right: 5px; border-radius: 5px;">{{time}}</p>

@@ -9,7 +9,7 @@ import { TicketBookingComponent } from "./ticket-booking/ticket-booking.componen
 import { AddMovieComponent } from "./admin/add-movie/add-movie.component";
 
 const routes: Routes = [
-    { path: '', component: HomepageComponent },
+    { path: 'home', component: HomepageComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'movie-details/:movieTitle', component: MovieDetailsComponent },

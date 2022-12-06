@@ -24,7 +24,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getMoviesUpdated().subscribe((movies: Movie[]) => {
       this.moviesList = movies;
-      console.log(this.moviesList[0].id)
       this.filteredMovies = movies
     });
     this.accountService.getisAdmin()
@@ -59,20 +58,12 @@ export class HomepageComponent implements OnInit {
     this.filteredMovies = this.moviesList
   }
 
-  onAddMovie() {
-    this.accountService.addMovie();
-  }
-
   onDeleteMovie() {
-    const id : string = localStorage.getItem("movie-delete-id")!
-    console.log(id)
-    this.movieService.deleteMovie(id)
+    this.movieService.deleteMovie(this.movieId);
   }
 
   onClick(id:string){
-    console.log(id)
-    localStorage.setItem("movie-delete-id", id)
-
+    this.movieId = id;
   }
   
 

@@ -1,5 +1,4 @@
 const express = require('express');
-
 const app = express();
 const https = require("https");
 const Account = require('./models/account')
@@ -7,9 +6,12 @@ const Movie = require("./models/movie")
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
+
+
 const jwt = require('jsonwebtoken')
 const checkAuth = require('./middleware/check-auth');
 ObjectId = require('mongodb').ObjectID;
+
 
 mongoose.connect("mongodb+srv://ThuNguyen:teamwork@cluster0.wuh4lin.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
@@ -57,9 +59,7 @@ app.post("/register", (req, res, next) => {
                     })
                 })
         })
-
 })
-
 
 app.post("/login", (req, res, next) => {
     let loginAccount;
@@ -89,7 +89,6 @@ app.post("/login", (req, res, next) => {
                 token: token,
                 isAdmin: loginAccount.isAdmin,
                 username: loginAccount.regUsername
-
             })
         })
         .catch(err => {
@@ -99,9 +98,8 @@ app.post("/login", (req, res, next) => {
         })
 })
 
-
-
 app.post("/movies", (req, res, next) => {
+    console.log("server: " + req.body.title)
     const movie = new Movie({
         adult: req.body.adult,
         backdrop_path: req.body.backdrop_path,
@@ -123,7 +121,7 @@ app.post("/movies", (req, res, next) => {
     });
     movie.save().then((result) => {
         res.status(201).json({
-            message: 'Movie added to mongoDB with secured password',
+            message: 'Movie added',
             result: result
         });
     })
@@ -132,7 +130,6 @@ app.post("/movies", (req, res, next) => {
                 error: err
             })
         })
-
 })
 
 app.post("/deleteMovie", (req, res, next) => {
@@ -147,7 +144,6 @@ app.post("/deleteMovie", (req, res, next) => {
             res.status(200).json({ message: "Post deleted!" })
         }
     })
-
 })
 
 app.use("/movies", (req, res, next) => {
@@ -160,36 +156,20 @@ app.use("/movies", (req, res, next) => {
         })
 })
 
-// app.delete("/movies/:id", (req, res, next) => {
-//     console.log(":id = " + this.params.id)
-//     Movie.findOneAndDelete(this.params.id, (err, data) => {
-//         if (err) {
-//             res.status(500).json({
-//                 message: "ERRRRRRRRR"
-//             })
-//         } else {
-//             res.status(200).json({ message: "Post deleted!" })
-//         }
+const url = "https://api.themoviedb.org/3/movie/upcoming?api_key=32a493f008c6421b255d91b5cbc139b7&language=en-US&page=10"
+https.get(url, function (response) {
+    // console.log("ngon qua")
+    response.on("data", function (data) {
 
-// Movie.deleteOne({
-//     original_title: req.params.original_title
-// }).then(result => {
-// console.log("app: " + req,  this.param.id)
-//     res.status(200).json({ message: "Post deleted!" })
-//     })
-// })
-// const url = "https://api.themoviedb.org/3/movie/upcoming?api_key=32a493f008c6421b255d91b5cbc139b7&language=en-US&page=10"
-// https.get(url, function (response) {
-//     response.on("data", function (data) {
-//         const jobsData = JSON.parse(data);
-//         const jobsJson = jobsData.results;
-//         app.use("/movies", (req, res, next) => {
-//             res.status(200).json({
-//                 message: 'success',
-//                 posts: jobsJson
-//             });
-//         });
-//     });
-// });
+        const jobsData = JSON.parse(data);
+        const jobsJson = jobsData.results;
+        app.use("/api/admin", (req, res, next) => {
+            res.status(200).json({
+                message: 'success',
+                posts: jobsJson
+            });
+        });
+    });
+});
 
 module.exports = app;

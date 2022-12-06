@@ -17,6 +17,7 @@ export class HomepageComponent implements OnInit {
   moviesList: Movie[] = [];
   filteredMovies: Movie[] = [];
   isAdmin = false
+  movieId='';
 
   constructor(public movieService: MovieService, public moviesFilter: FilterPipe, public accountService: AccountService) { }
 
@@ -66,4 +67,5 @@ export class HomepageComponent implements OnInit {
     console.log("Comp.ts" + id)
     this.movieService.deleteMovie(id)
   }
+
 }

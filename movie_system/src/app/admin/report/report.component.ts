@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ReportComponent implements OnInit {
-    constructor(
-        ) {}
+    date = new Date();
+    filteredMovies = [{
+        "title": "",
+        "poster_path": "",
+        "original_title": ""
+    }];
+    constructor() {}
       
     ngOnInit(): void {
     }

@@ -23,11 +23,12 @@ export class TicketBookingComponent implements OnInit {
   movieToBook!: Movie
   movieTitle = ""
   paymentType = "";
+  ticketBooked = true
 
-  constructor(public movieService: MovieService, public route: ActivatedRoute,  @Inject(DOCUMENT) private document: Document) { }
+  constructor(public movieService: MovieService, public route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
-    
+
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.movieTitle = paramMap.get('movieTitle')!;
       this.movieService.getMoviesUpdated().subscribe((movies) => {
@@ -42,13 +43,14 @@ export class TicketBookingComponent implements OnInit {
 
   onSubmit(): void {
     console.log("SUBMITTED: " + this.selection);
+
   }
 
   onItemChange(e: Event): void {
     this.selection = this.movieToBook.title + ' - ' + (e.target as HTMLInputElement).value;
   }
 
-  onSelectPayment(e: Event) : void {
+  onSelectPayment(e: Event): void {
     this.paymentType = (e.target as HTMLInputElement).value;
   }
 

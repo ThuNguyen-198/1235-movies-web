@@ -46,13 +46,14 @@ export class AccountService {
     }
 
     addMovie(movie: Movie) {
+        console.log("addMovie 1: " + movie.title)
         this.http.post('http://localhost:3000/movies', movie)
             .subscribe((responseData) => {
-                if (responseData == null) {
-                    alert("Movie was not added!")
-                }
+                if (responseData)
+                    alert("Movie added successfully!")
                 else
-                    alert("Movie was added successfully!")
+                    alert("Add Movie Failed!")
+
             })
     }
 

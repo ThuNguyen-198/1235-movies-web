@@ -10,6 +10,7 @@ import { AccountService } from '../auth/account.service';
 export class HeaderBarComponent implements OnInit {
   username = '';
   userIsAuthenticated = false;
+  isAdmin = false;
 
   constructor(public accountService: AccountService) {
   }
@@ -29,6 +30,20 @@ export class HeaderBarComponent implements OnInit {
     }
     // ---------Setup User Authentication Status---------
 
+    // ---------Setup isAdmin---------
+    // this.accountService.getAuthStatusListener()
+    //   .subscribe(isAuthenticated => {
+    //     this.userIsAuthenticated = isAuthenticated;
+    //   })
+
+    // if (localStorage.getItem("isAuthenticated") == "true") {
+    //   this.userIsAuthenticated = true
+    // }
+    // else {
+    //   this.userIsAuthenticated = false
+    // }
+    // ---------Setup isAdmin--------
+
     // ---------Setup User Name---------
     this.accountService.getUserName()
       .subscribe(username => {
@@ -36,9 +51,8 @@ export class HeaderBarComponent implements OnInit {
       })
 
     this.username = localStorage.getItem("userName")!
-
-
   }
+  // ---------Setup User Name---------
 
   onLogout() {
     this.accountService.setAuthStatusListener()

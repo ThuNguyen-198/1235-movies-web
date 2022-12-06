@@ -23,7 +23,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getMoviesUpdated().subscribe((movies: Movie[]) => {
       this.moviesList = movies;
-      console.log(this.moviesList[0].id)
       this.filteredMovies = movies
     });
     this.accountService.getisAdmin()
@@ -58,12 +57,7 @@ export class HomepageComponent implements OnInit {
     this.filteredMovies = this.moviesList
   }
 
-  onAddMovie() {
-    this.accountService.addMovie();
-  }
-
   onDeleteMovie(id: string) {
-    console.log("Comp.ts" + id)
     this.movieService.deleteMovie(id)
   }
 }

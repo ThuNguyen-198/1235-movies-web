@@ -1,4 +1,5 @@
-<div style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url('assets/images/bg.jpg'); background-size: cover; height:100%; overflow: auto;">
+<div
+    style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url('assets/images/bg.jpg'); background-size: cover; height:100%; overflow: auto;">
     <app-header-bar></app-header-bar>
     <div class="container mt-5 align-items-center">
         <div class="row align-items-center">
@@ -18,64 +19,84 @@
                         The Chosen
                     </h1>
                 </div>
-                
-                <div class="col pt-4 pt-lg-0">
-                    <img src="" class="float-start"
+                <!-- ----------------Display list of movies to add------------------ -->
+                <div class="col pt-4 pt-lg-0" *ngFor="let movie of moviesList">
+                    <img src="{{'https://image.tmdb.org/t/p/w300' + movie.poster_path}}" class="float-start"
                         style="height: 150px; width:270px; margin-right:15px; border-radius: 10px;">
                     <p style="margin-left:10px; margin-right: 20px;">
-                        
+
                     </p>
+                    <p>{{movie.title}}</p>
+                    <p>{{movie.overview}}</p>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" (click)="onPickMovie(movie)">
+                        Add
+                    </button>
                 </div>
+
+
+
+                <!-- ----------------Display list of movies to add------------------ -->
             </div>
 
             <div class="row justify-content-end">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <!-- <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     Add
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Movie Title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            
-                            <form [formGroup]="showtimes" class="form-group mb-3">
-                                <div class="row">
-                                    <label for="theater">Theater</label>
-                                    <input formControlName="theater" type="text" class="form-control" list="theaterList" id="movieTheaterList" placeholder="Type to search theater">
-                                    <datalist id="theaterList">
-                                        <option value="Lubbock Premiere">
-                                        <option value="Cinemark Movies 16">
-                                        <option value="Alamo Drafthouse Lubbock">
-                                        <option value="Stars and Stripes">
-                                    </datalist>
-                                </div>
+                </button> -->
 
-                                <div class="row mt-3">
-                                    <label for="showtime">Showtime</label>
-                                    <input formControlName="showtimeList" type="time" class="form-control" id="showtime">
-                                </div>
-                                <div class="row mt-3 text-start">
-                                    <p style="padding-left: 0; font-weight: bold;">{{inputTheater}}</p>
-                                    <p *ngFor="let time of inputShowtimes" style="color:antiquewhite; margin-right: 5px; border-radius: 5px;">{{time}}</p>
-                                    
-                                </div>
-                                <div class="row mt-1">
-                                    <button class="btn btn-outline-info" (click)="onAddShowtime()">Add showtime</button>
-                                    <button class="btn btn-outline-info" (click)="onAddTheater()">Add theater</button>
-                                </div>
-                            </form>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">{{movieTitle}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form [formGroup]="showtimes" class="form-group mb-3">
+                                    <div class="row">
+                                        <label for="theater">Theater</label>
+                                        <input formControlName="theater" type="text" class="form-control"
+                                            list="theaterList" id="movieTheaterList"
+                                            placeholder="Type to search theater">
+                                        <datalist id="theaterList">
+                                            <option value="Lubbock Premiere">
+                                            <option value="Cinemark Movies 16">
+                                            <option value="Alamo Drafthouse Lubbock">
+                                            <option value="Stars and Stripes">
+                                        </datalist>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <label for="showtime">Showtime</label>
+                                        <input formControlName="showtimeList" type="time" class="form-control"
+                                            id="showtime">
+                                    </div>
+                                    <div class="row mt-3 text-start">
+                                        <p style="padding-left: 0; font-weight: bold;">{{inputTheater}}</p>
+                                        <p *ngFor="let time of inputShowtimes"
+                                            style="color:antiquewhite; margin-right: 5px; border-radius: 5px;">{{time}}
+                                        </p>
+
+                                    </div>
+                                    <div class="row mt-1">
+                                        <button class="btn btn-outline-info" (click)="onAddShowtime()">Add
+                                            showtime</button>
+                                        <button class="btn btn-outline-info" (click)="onAddTheater()">Add
+                                            theater</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" (click)="onAddMovie()">Add movie</button>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Add movie</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

@@ -31,21 +31,20 @@
     <img class="rounded-circle shadow-4-strong" alt="User Profile" src="assets/images/user-profile.png"
       style="height:50px; width:50px;" />
 
-          <!-- Default dropstart button -->
-      <div class="btn-group dropstart">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="material-symbols-outlined" style="padding-bottom:0;">
-            list
-          </i>
-        </button>
-        <ul class="dropdown-menu">
-          <li>Add movies</li>
-          <li>View current report</li>
-        </ul>
-      </div>
+    <!-- Default dropstart button -->
+    <div class="btn-group dropstart">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="material-symbols-outlined" style="padding-bottom:0;">
+          list
+        </i>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a routerLink="/add-movie">Add movies</a></li>
+        <li>View current report</li>
+      </ul>
+    </div>
 
-    <button type="button" class="btn btn-outline-info" (click)="onLogout()" routerLink=""
-      style="color: antiquewhite;">
+    <button type="button" class="btn btn-outline-info" (click)="onLogout()" routerLink="" style="color: antiquewhite;">
       <span class="material-symbols-outlined">
         logout
       </span>

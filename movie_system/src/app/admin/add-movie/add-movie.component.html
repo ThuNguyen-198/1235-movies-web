@@ -14,12 +14,14 @@
 
             <div class="row justify-items-center">
                 <!-- ----------------Display list of movies to add------------------ -->
-                <div class="col pt-4 pt-lg-0 mt-4 justify-content-md-center" *ngFor="let movie of moviesList">
-                    <img src="{{'https://image.tmdb.org/t/p/w300' + movie.poster_path}}" class="float-start"
-                        style="height: 400px; margin-right:15px; border-radius: 10px;">
-                    <p style="margin-left:10px; margin-right: 20px;">
-                    </p>
-                    <p>{{movie.title}}</p>
+                <div class="col-sm-4 pt-4 pt-lg-0 mt-4 justify-content-md-center" *ngFor="let movie of moviesList">
+                    <div class="row">
+                        <img src="{{'https://image.tmdb.org/t/p/w300' + movie.poster_path}}" class="float-start"
+                        style="height: 420px; border-radius: 10px;">
+                    </div>
+                    <div class="row">
+                    <p class="movie-title">{{movie.title}}</p>
+                    </div>
                     <p class="overview">{{movie.overview}}</p>
                     <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop" (click)="onPickMovie(movie)">

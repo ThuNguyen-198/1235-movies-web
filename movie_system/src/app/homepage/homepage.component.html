@@ -41,7 +41,6 @@
                 <button class="btn btn-outline-light" style="margin-right:0;" (click)="getAll()">All</button>
                 <button class="btn btn-outline-light" (click)="getCurrent()">Current</button>
                 <button class="btn btn-outline-light" (click)="getUpcoming()">Upcoming</button>
-                <button class="btn btn-outline-light" (click)="onAddMovie()">Add Movie</button>
             </div>
 
         </div>
@@ -66,6 +65,7 @@
                         </button>
 
                         <!-- Modal -->
+
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -84,6 +84,7 @@
                         </div>
                     </div>
                         
+
                     </div>
                     <div class="col pt-4 pt-lg-0">
                         <img src="{{'https://image.tmdb.org/t/p/w300' + movie.poster_path}}" class="float-start"

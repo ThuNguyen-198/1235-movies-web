@@ -38,6 +38,7 @@ import { FilterPipe } from './homepage/filter.pip';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AddMovieComponent } from './admin/add-movie/add-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReportComponent } from './admin/report/report.component';
 
 @NgModule({
 
@@ -50,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderBarComponent,
     TicketBookingComponent,
     FilterPipe,
-    AddMovieComponent
+    AddMovieComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

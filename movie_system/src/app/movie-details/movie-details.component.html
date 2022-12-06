@@ -33,9 +33,29 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="row" style="margin-right: 20px;">
-        <button class="btn btn-outline-light" (click)="onReview()" *ngIf="userIsAuthenticated">
-          <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}} </a>
+        <button class="btn btn-outline-light" (click)="onReview()">
+          <a *ngIf="userIsAuthenticated" style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}} </a>
         </button>
+        <ng-template [ngIf]="!userIsAuthenticated">
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Log In Needed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                Please log in before leaving reviews!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+            </div>
+          </div>
+        </ng-template>
       </div>
     </div>
 

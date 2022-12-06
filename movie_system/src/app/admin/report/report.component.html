@@ -1,0 +1,54 @@
+<div style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('assets/images/bg.jpg');background-size: cover; 
+    height:100%; overflow: auto; opacity: 75%; 
+    display: flex; flex-direction: column;">
+    <app-header-bar></app-header-bar>
+
+    <div class="container mt-5 align-items-center">
+        <div class="row align-items-center">
+            <i class="material-icons-outlined float-start">
+                summarize
+            </i>
+            <h1>Report</h1>
+        </div>
+    </div>
+
+    <div class="container mt-4 align-items-center">
+        <p>{{date.toDateString()}}</p>
+        <h2>Number of tickets sold: 12 tickets</h2>
+
+        <div class="row mt-4">
+            <h2>Current movies </h2>
+        </div>
+
+        <div class="movie-items m-2 p-4" style="background-color: rgba(255, 255, 255, 0.6); border-radius: 10px;"
+        *ngFor="let movie of filteredMovies">
+            <div class="row">
+                <div class="col-sm-10">
+                    <h1
+                        style="text-transform: uppercase; font-family: 'Fredoka One', cursive; filter: drop-shadow(3px 3px 3px black); font-size: 40px;">
+                        {{movie.title}}
+                    </h1>
+                </div>
+            </div>
+            <div class="col pt-4 pt-lg-0">
+                <img src="{{'https://image.tmdb.org/t/p/w300' + movie.poster_path}}" class="float-start"
+                    style="height: 150px; width:270px; margin-right:15px; border-radius: 10px;">
+                <p style="margin-left:10px; margin-right: 20px;">
+                    Movie overview
+                </p>
+            </div>
+                    
+
+            <div class="row justify-content-end">
+                <button class="btn btn-outline-light"
+                    style="font-size: 20px; font-weight: bold; width:20%; margin-right: 10px;">
+                    <a [routerLink]="['/movie-details', movie.original_title]"
+                        style="text-decoration: none; color: antiquewhite;">More details
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

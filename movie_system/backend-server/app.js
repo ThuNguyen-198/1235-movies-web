@@ -99,27 +99,47 @@ app.post("/login", (req, res, next) => {
 })
 
 app.post("/movies", (req, res, next) => {
-    console.log("server: " + req.body.title)
-    const movie = new Movie({
-        adult: req.body.adult,
-        backdrop_path: req.body.backdrop_path,
-        genre_ids: req.body.genre_ids,
-        original_language: req.body.original_language,
-        original_title: req.body.original_title,
-        overview: req.body.overview,
-        popularity: req.body.popularity,
-        poster_path: req.body.poster_path,
-        release_date: req.body.release_date,
-        title: req.body.title,
-        video: req.body.video,
-        vote_average: req.body.vote_average,
-        vote_count: req.body.vote_count,
-        show_times: req.body.show_times,
-        theaters: req.body.theaters,
-        ticket_price: req.body.ticket_price,
-        tickets_sold: req.body.tickets_sold
-    });
+    console.log("server 1: " + req.body.title)
+    const movie = new Movie()
+    movie.adult = req.body.adult
+    movie.backdrop_path = req.body.backdrop_path
+    movie.genre_ids = req.body.genre_ids
+    movie.original_language = req.body.original_language
+    movie.original_title = req.body.original_title
+    movie.overview = req.body.overview
+    movie.popularity = req.body.popularity
+    movie.poster_path = req.body.poster_path
+    movie.release_date = req.body.release_date
+    movie.title = req.body.title
+    movie.video = req.body.video
+    movie.vote_average = req.body.vote_average
+    movie.vote_count = req.body.vote_count
+    movie.show_times = req.body.show_times
+    movie.theaters = req.body.theaters
+    movie.ticket_price = req.body.ticket_price
+    movie.tickets_sold = req.body.tickets_sold
+    // const movie = new Movie({
+    //     adult: req.body.adult,
+    //     backdrop_path: req.body.backdrop_path,
+    //     genre_ids: req.body.genre_ids,
+    //     original_language: req.body.original_language,
+    //     original_title: req.body.original_title,
+    //     overview: req.body.overview,
+    //     popularity: req.body.popularity,
+    //     poster_path: req.body.poster_path,
+    //     release_date: req.body.release_date,
+    //     title: req.body.title,
+    //     video: req.body.video,
+    //     vote_average: req.body.vote_average,
+    //     vote_count: req.body.vote_count,
+    //     show_times: req.body.show_times,
+    //     theaters: req.body.theaters,
+    //     ticket_price: req.body.ticket_price,
+    //     tickets_sold: req.body.tickets_sold
+    // });
+
     movie.save().then((result) => {
+        console.log("server 2: " + req.body.title)
         res.status(201).json({
             message: 'Movie added',
             result: result

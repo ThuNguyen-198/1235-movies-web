@@ -63,9 +63,17 @@ export class HomepageComponent implements OnInit {
     this.accountService.addMovie();
   }
 
-  onDeleteMovie(id: string) {
-    console.log("Comp.ts" + id)
+  onDeleteMovie() {
+    const id : string = localStorage.getItem("movie-delete-id")!
+    console.log(id)
     this.movieService.deleteMovie(id)
   }
+
+  onClick(id:string){
+    console.log(id)
+    localStorage.setItem("movie-delete-id", id)
+
+  }
+  
 
 }

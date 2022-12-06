@@ -4,7 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const movieSchema = mongoose.Schema({
     adult: { type: Boolean },
     backdrop_path: { type: String },
-    genre_ids: { type: String },
+    genre_ids: { type: [Number] },
     original_language: { type: String },
     original_title: { type: String },
     overview: { type: String },
@@ -18,7 +18,7 @@ const movieSchema = mongoose.Schema({
     show_times: { type: [String] },
     theaters: { type: [String] },
     ticket_price: { type: Number, default: 15 },
-    tickets_sold: { type: Number }
+    tickets_sold: { type: Number, default: 0 }
 });
 
 movieSchema.plugin(uniqueValidator);

@@ -135,30 +135,29 @@
               <h4 class="mb-4">Payment</h4>
 
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm3" 
-                [attr.value]="'Credit card'"
-                (change)="onSelectPayment($event)" checked/>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm3"
+                  [attr.value]="'Credit card'" (change)="onSelectPayment($event)" checked />
                 <label class="form-check-label" for="checkoutForm3">
                   Credit card
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm4" [attr.value]="'Debit card'"
-                (change)="onSelectPayment($event)" checked/>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm4"
+                  [attr.value]="'Debit card'" (change)="onSelectPayment($event)" checked />
                 <label class="form-check-label" for="checkoutForm4">
                   Debit card
                 </label>
               </div>
 
               <div class="form-check mb-4">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm5" [attr.value]="'PayPal'"
-                (change)="onSelectPayment($event)" checked/>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm5"
+                  [attr.value]="'PayPal'" (change)="onSelectPayment($event)" checked />
                 <label class="form-check-label" for="checkoutForm5">
                   Paypal
                 </label>
               </div>
-              
+
               <div class="row mb-4" *ngIf="paymentType !== 'PayPal'; else redirectPayPal">
                 <div class="col">
                   <div class="form-outline">
@@ -186,7 +185,7 @@
                       <label class="form-label" for="formCVV">CVV</label>
                     </div>
                   </div>
-              </div>
+                </div>
               </div>
               <ng-template #redirectPayPal>
                 {{goToUrl()}}

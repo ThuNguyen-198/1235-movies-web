@@ -17,7 +17,9 @@ export class HomepageComponent implements OnInit {
   moviesList: Movie[] = [];
   filteredMovies: Movie[] = [];
   isAdmin = false
-  movieId='';
+  movieId = '';
+  id = ""
+  // movieDeleted = true
 
   constructor(public movieService: MovieService, public moviesFilter: FilterPipe, public accountService: AccountService) { }
 
@@ -65,6 +67,5 @@ export class HomepageComponent implements OnInit {
   onClick(id:string){
     this.movieId = id;
   }
-  
 
 }

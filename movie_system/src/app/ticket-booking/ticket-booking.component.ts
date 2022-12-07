@@ -25,6 +25,7 @@ export class TicketBookingComponent implements OnInit {
   paymentType = "";
   ticketBooked = false;
   showtime = "";
+  ticketID = ""
 
   constructor(public movieService: MovieService, public route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) { }
 
@@ -36,6 +37,7 @@ export class TicketBookingComponent implements OnInit {
         for (let i = 0; i < movies.length; i++) {
           if (movies[i].original_title == this.movieTitle) {
             this.movieToBook = movies[i]
+            this.ticketID = this.movieToBook.id
           }
         }
       })
@@ -43,9 +45,9 @@ export class TicketBookingComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("tickets booked: " + this.tickets)
     this.movieService.purchaseTickets(this.movieToBook.id, this.tickets)
     this.ticketBooked = true;
+
   }
 
   onItemChange(e: Event): void {

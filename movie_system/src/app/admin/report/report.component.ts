@@ -26,11 +26,12 @@ export class ReportComponent implements OnInit {
             this.movieList = movies;
             let date = new Date()
             this.filteredMovies = this.moviesFilter.getCurrentMovies([...this.movieList], date);
+
+            for (let i = 0; i < this.movieList.length; i++) {
+                this.totalTicketsSold += this.movieList[i].tickets_sold
+            }
         });
-        for (let i = 0; i < this.movieList.length; i++) {
-            console.log(this.movieList[i])
-            this.totalTicketsSold = + this.movieList[i].tickets_sold
-        }
+
 
     }
 

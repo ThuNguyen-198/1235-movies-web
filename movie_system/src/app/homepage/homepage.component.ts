@@ -56,6 +56,10 @@ export class HomepageComponent implements OnInit {
     let date = new Date()
     this.filteredMovies = this.moviesFilter.getUpComingMovies([...this.moviesList], date);
   }
+
+  isUpcomming(releaseDate: string){
+    return new Date(releaseDate) > new Date()
+  }
   getAll() {
     this.filteredMovies = this.moviesList
   }

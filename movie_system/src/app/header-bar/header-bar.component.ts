@@ -31,17 +31,17 @@ export class HeaderBarComponent implements OnInit {
     // ---------Setup User Authentication Status---------
 
     // ---------Setup isAdmin---------
-    // this.accountService.getAuthStatusListener()
-    //   .subscribe(isAuthenticated => {
-    //     this.userIsAuthenticated = isAuthenticated;
-    //   })
+    this.accountService.getisAdmin()
+      .subscribe(isAdmin => {
+        this.isAdmin = isAdmin;
+      })
 
-    // if (localStorage.getItem("isAuthenticated") == "true") {
-    //   this.userIsAuthenticated = true
-    // }
-    // else {
-    //   this.userIsAuthenticated = false
-    // }
+    if (localStorage.getItem("isAdmin") == "true") {
+      this.isAdmin = true
+    }
+    else {
+      this.isAdmin = false
+    }
     // ---------Setup isAdmin--------
 
     // ---------Setup User Name---------

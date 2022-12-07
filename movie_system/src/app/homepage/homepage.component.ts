@@ -25,6 +25,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getMoviesUpdated().subscribe((movies: Movie[]) => {
+      console.log("movies: " + movies)
       this.moviesList = movies;
       this.filteredMovies = movies
     });

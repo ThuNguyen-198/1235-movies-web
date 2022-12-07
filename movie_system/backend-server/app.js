@@ -166,6 +166,19 @@ app.post("/deleteMovie", (req, res, next) => {
     })
 })
 
+app.post("/purchase-tickets", (req, res, next) => {
+    const movie_id = req.body[0]
+    Movie.findOne({ _id: movie_id }, function (err, movie) {
+        const ticketsSold = movie.tickets_sold + req.body[1]
+        Movie.updateOne({ _id: movie_id }, { $set: { tickets_sold: ticketsSold } }, function (err, response) {
+        })
+    })
+
+
+
+})
+
+
 app.use("/movies", (req, res, next) => {
     Movie.find()
         .then(movieList => {

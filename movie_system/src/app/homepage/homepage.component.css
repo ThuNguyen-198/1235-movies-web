@@ -28,3 +28,19 @@ h1 {
     margin-left: 5px;
 }
 
+.upcoming-tag {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: antiquewhite;
+    border-radius: 5px;
+    width:fit-content;
+    padding: 5px;
+}
+
+h1.movie-title {
+    text-transform: uppercase; 
+    font-family: 'Fredoka One', cursive; 
+    filter: drop-shadow(3px 3px 3px black); 
+    font-size: 40px;
+    width:fit-content ;
+}
+

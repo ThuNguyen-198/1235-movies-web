@@ -23,7 +23,8 @@ export class TicketBookingComponent implements OnInit {
   movieToBook!: Movie
   movieTitle = ""
   paymentType = "";
-  ticketBooked = true
+  ticketBooked = false;
+  showtime = "";
 
   constructor(public movieService: MovieService, public route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) { }
 
@@ -43,11 +44,12 @@ export class TicketBookingComponent implements OnInit {
 
   onSubmit(): void {
     console.log("SUBMITTED: " + this.selection);
-
+    this.ticketBooked = true;
   }
 
   onItemChange(e: Event): void {
     this.selection = this.movieToBook.title + ' - ' + (e.target as HTMLInputElement).value;
+    this.showtime = (e.target as HTMLInputElement).value;
   }
 
   onSelectPayment(e: Event): void {

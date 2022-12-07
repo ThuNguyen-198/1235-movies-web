@@ -66,12 +66,11 @@ export class HomepageComponent implements OnInit {
   }
 
   onDeleteMovie() {
-    this.movieService.deleteMovie(this.id)
-    // this.movieDeleted = true
+    this.movieService.deleteMovie(this.movieId);
   }
 
-  onPopup(id: string) {
-    // this.movieDeleted = false
-    this.id = id
+  onClick(id:string){
+    this.movieId = id;
   }
+
 }

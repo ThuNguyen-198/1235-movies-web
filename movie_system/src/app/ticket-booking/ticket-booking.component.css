@@ -75,3 +75,12 @@ ul li {
     border-color: white;
     color: antiquewhite;
 }
+
+h3.confirmation {
+    width: fit-content;
+}
+
+i {
+    font-size: 70px;
+    color: antiquewhite;
+}

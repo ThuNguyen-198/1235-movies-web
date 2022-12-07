@@ -61,22 +61,18 @@
                         </p>
                     </div>
 
-                    <div class="col text-end pt-4 pt-lg-0" *ngIf="isAdmin">
-                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop" (click)="onPopup(movie.id)">
+                    <div class="col text-end pt-4 pt-lg-0">
+                        <button type="button" (click)="onClick(movie.id)" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <i class="material-symbols-outlined text-center justify-content-md-center"
                                 style="font-size: 20px;">
                                 delete
                             </i>
                         </button>
 
-
-
-
                     </div>
                     <div class="col pt-4 pt-lg-0">
                         <img src="{{'https://image.tmdb.org/t/p/w300' + movie.poster_path}}" class="float-start"
-                            style="height: 150px; width:270px; margin-right:15px; border-radius: 10px;">
+                            style="height: 200px;margin-right:15px; border-radius: 10px;">
                         <p style="margin-left:10px; margin-right: 20px;">
                             {{movie.overview}}
                         </p>
@@ -98,7 +94,6 @@
     </div>
 </div>
 
-<!-- Modal -->
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">

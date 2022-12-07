@@ -21,6 +21,7 @@
         </div>
       </div>
 
+      <div class="review" *ngIf="!isUpcomming(moviePassed.release_date)">
       <div class="row"
         style="margin-right: 20px; margin-bottom: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px;"
         *ngFor="let review of reviews">
@@ -35,7 +36,7 @@
       </div>
       <div class="row" style="margin-right: 20px;">
         <button class="btn btn-outline-light" (click)="onReview()">
-          <a *ngIf="userIsAuthenticated" style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Close' : 'Add review'}} </a>
+          <a style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Close' : 'Add review'}} </a>
         </button>
         <button class="btn btn-outline-light mt-2" *ngIf="openReview" (click)="onPost()"> 
           <a style="text-decoration: none; color: antiquewhite;">Post</a>
@@ -61,6 +62,7 @@
           </div>
         </ng-template>
       </div>
+    </div>
     </div>
 
     <div class="col text-start w-100"

@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col text-end pt-lg-0">
-                        <button type="button" (click)="onClick(movie.id)" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button type="button" *ngIf="isAdmin && userIsAuthenticated" (click)="onClick(movie.id)" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <i class="material-symbols-outlined text-center justify-content-md-center"
                                 style="font-size: 20px;">
                                 delete

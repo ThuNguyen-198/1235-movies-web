@@ -28,6 +28,18 @@ export class HeaderBarComponent implements OnInit {
     else {
       this.userIsAuthenticated = false
     }
+
+    this.accountService.getisAdmin()
+      .subscribe(isAdmin => {
+        this.isAdmin = isAdmin;
+      })
+
+    if (localStorage.getItem("isAdmin") == "true") {
+      this.isAdmin = true
+    }
+    else {
+      this.isAdmin = false
+    }
     // ---------Setup User Authentication Status---------
 
     // ---------Setup isAdmin---------

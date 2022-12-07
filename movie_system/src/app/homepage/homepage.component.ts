@@ -19,6 +19,7 @@ export class HomepageComponent implements OnInit {
   isAdmin = false
   movieId = '';
   id = ""
+  userIsAuthenticated = false;
   // movieDeleted = true
 
   constructor(public movieService: MovieService, public moviesFilter: FilterPipe, public accountService: AccountService) { }
@@ -39,6 +40,17 @@ export class HomepageComponent implements OnInit {
     }
     else {
       this.isAdmin = false
+    }
+    this.accountService.getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      })
+
+    if (localStorage.getItem("isAuthenticated") == "true") {
+      this.userIsAuthenticated = true
+    }
+    else {
+      this.userIsAuthenticated = false
     }
   }
 

@@ -25,6 +25,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getMoviesUpdated().subscribe((movies: Movie[]) => {
+      console.log("movies: " + movies)
       this.moviesList = movies;
       this.filteredMovies = movies
     });
@@ -55,6 +56,10 @@ export class HomepageComponent implements OnInit {
   getUpcoming() {
     let date = new Date()
     this.filteredMovies = this.moviesFilter.getUpComingMovies([...this.moviesList], date);
+  }
+
+  isUpcomming(releaseDate: string){
+    return new Date(releaseDate) > new Date()
   }
   getAll() {
     this.filteredMovies = this.moviesList

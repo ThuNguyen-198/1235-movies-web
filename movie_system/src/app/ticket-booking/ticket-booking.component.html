@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="container mb-5">
+  <div class="container mb-5" *ngIf="!ticketBooked">
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item" *ngFor="let theater of theaters; let i = index;">
         <h2 class="accordion-header" [id]="'heading' + i">

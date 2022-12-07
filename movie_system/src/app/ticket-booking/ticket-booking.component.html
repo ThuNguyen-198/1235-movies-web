@@ -13,8 +13,8 @@
     </div>
   </div>
 
-  <div class="container mb-5" *ngIf="!ticketBooked">
-    <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="container mb-5" [ngStyle]="{backgroundColor: !ticketBooked ? 'rgba(0, 0, 0, 0.3)' : 'transparent'}">
+    <div class="accordion" id="accordionPanelsStayOpenExample" *ngIf="!ticketBooked">
       <div class="accordion-item" *ngFor="let theater of theaters; let i = index;">
         <h2 class="accordion-header" [id]="'heading' + i">
           <button class="accordion-button" [ngClass]="{ 'collapsed': i != 0 }" type="button" data-bs-toggle="collapse"
@@ -231,7 +231,7 @@
       </div>
     </div>
 
-    <div class="container mt-3 text-center" style="width:700px;background-color: rgba(0, 0, 0, 0.6);" *ngIf="ticketBooked">
+    <div class="container mt-2 text-center" style="width:700px;background-color: rgba(0, 0, 0, 0.6);" *ngIf="ticketBooked">
       <div class="row justify-content-start mt-3">
         <i class="material-symbols-outlined">
           confirmation_number

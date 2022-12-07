@@ -17,7 +17,8 @@ export class ReportComponent implements OnInit {
     filteredMovies = [{
         "title": "",
         "poster_path": "",
-        "original_title": ""
+        "original_title": "",
+        "overview": ""
     }];
     constructor(public movieService: MovieService, public moviesFilter: FilterPipe) { }
 

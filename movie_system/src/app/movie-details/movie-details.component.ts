@@ -6,6 +6,7 @@ import { Movie } from '../homepage/movie.model';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { MovieService } from '../homepage/movie.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-details',
@@ -74,11 +75,19 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     this.openReview = !this.openReview;
   }
 
+  onWriteReview(e : Event) : void{
+    this.reviews.push((e.target as HTMLInputElement).value);
+  }
+
   ngOnDestroy() {
     this.authStatusSubs.unsubscribe();
   }
 
   isUpcomming(releaseDate: string){
     return new Date(releaseDate) > new Date()
+  }
+
+  onPost(){
+    this.openReview = !this.openReview;
   }
 }

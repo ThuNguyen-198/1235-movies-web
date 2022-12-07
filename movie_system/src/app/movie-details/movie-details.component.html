@@ -31,11 +31,14 @@
       </div>
 
       <div class="row" *ngIf="openReview" style="margin-right: 20px; margin-bottom: 10px;">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" type="text" id="exampleFormControlTextarea1" (change)="onWriteReview($event)"></textarea>
       </div>
       <div class="row" style="margin-right: 20px;">
         <button class="btn btn-outline-light" (click)="onReview()">
-          <a *ngIf="userIsAuthenticated" style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Post' : 'Add review'}} </a>
+          <a *ngIf="userIsAuthenticated" style="text-decoration: none; color: antiquewhite;">{{openReview ? 'Close' : 'Add review'}} </a>
+        </button>
+        <button class="btn btn-outline-light mt-2" *ngIf="openReview" (click)="onPost()"> 
+          <a style="text-decoration: none; color: antiquewhite;">Post</a>
         </button>
         <ng-template [ngIf]="!userIsAuthenticated">
           <!-- Modal -->

@@ -29,7 +29,6 @@ export class AddMovieComponent implements OnInit {
             console.log(movies)
             this.moviesList = movies
         })
-
     }
     // ------------------------------------
 

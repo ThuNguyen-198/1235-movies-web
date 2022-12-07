@@ -42,8 +42,8 @@ export class TicketBookingComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("SUBMITTED: " + this.selection);
-
+    console.log("tickets booked: " + this.tickets)
+    this.movieService.purchaseTickets(this.movieToBook.id, this.tickets)
   }
 
   onItemChange(e: Event): void {

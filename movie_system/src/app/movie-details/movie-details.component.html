@@ -1,6 +1,6 @@
 <div style="background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-    url('assets/images/bg.jpg');background-size: cover; 
-    height:100%; overflow: auto; opacity: 75%; 
+    url('assets/images/bg.jpg');background-size: cover;
+    height:100%; overflow: auto; opacity: 75%;
     display: flex; flex-direction: column;">
   <app-header-bar></app-header-bar>
 
@@ -13,9 +13,10 @@
           </star-rating>
         </div>
         <div class="col-7">
-          <button class="btn btn-outline-light" style="font-size: 15px; font-weight: bold;">
+          <p *ngIf="isUpcomming(moviePassed.release_date)"> UPCOMING</p>
+          <button class="btn btn-outline-light" style="font-size: 15px; font-weight: bold;" [disabled]="isUpcomming(moviePassed.release_date)">
             <a [routerLink]="['/booking', moviePassed.original_title]"
-              style="text-decoration: none; color: antiquewhite;">Book</a>
+              style="text-decoration: none; color: antiquewhite;" id="a-btn-book">Book</a>
           </button>
         </div>
       </div>
@@ -23,7 +24,7 @@
       <div class="row"
         style="margin-right: 20px; margin-bottom: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px;"
         *ngFor="let review of reviews">
-        <i class="material-icons-outlined" style="color: antiquewhite">
+        <i class="material-icons-outlined" style="color: antiquewhite" >
           format_quote
         </i>
         <p style="color: antiquewhite;">{{review}}</p>

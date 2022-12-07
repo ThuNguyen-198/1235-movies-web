@@ -77,4 +77,8 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.authStatusSubs.unsubscribe();
   }
+
+  isUpcomming(releaseDate: string){
+    return new Date(releaseDate) > new Date()
+  }
 }
